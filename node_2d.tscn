@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bicucwfgys7kr"]
+
+[sub_resource type="GDScript" id="GDScript_y32ns"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0e48y"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_epypp"]
+
+[node name="Node2D" type="Area2D"]
+script = SubResource("GDScript_y32ns")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0e48y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
+sprite_frames = SubResource("SpriteFrames_epypp")

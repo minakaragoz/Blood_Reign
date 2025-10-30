@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1ono015b78my"]
+
+[ext_resource type="Texture2D" uid="uid://bva6lrjq63ugp" path="res://sprites/buildingBlocks/woodFencePNGs/woodFenceHorMid.png" id="1_d27ba"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8opdi"]
+size = Vector2(50, 9.94152)
+
+[node name="Node2D" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(10, 2)
+texture = ExtResource("1_d27ba")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(10, 2)
+scale = Vector2(0.7, 1.71)
+shape = SubResource("RectangleShape2D_8opdi")

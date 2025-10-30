@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://do2fnncx2qk6q"]
+
+[ext_resource type="Texture2D" uid="uid://cdxl6kmv1cb7w" path="res://sprites/outdoorObjects/lamp.png" id="1_r1c0r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8opdi"]
+size = Vector2(28, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yt8gj"]
+
+[node name="Node2D" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(13.615, 16)
+texture = ExtResource("1_r1c0r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(20.405, 17.98)
+scale = Vector2(0.125, 1.71)
+shape = SubResource("RectangleShape2D_8opdi")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(10.005, -0.04)
+scale = Vector2(0.835, 1.045)
+shape = SubResource("RectangleShape2D_yt8gj")

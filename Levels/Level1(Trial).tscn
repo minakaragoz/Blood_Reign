@@ -1,0 +1,98 @@
+[gd_scene load_steps=11 format=3 uid="uid://t6dlrmmf7le5"]
+
+[ext_resource type="Script" uid="uid://cle6gqbmkjmyt" path="res://Levels/level_1(trial).gd" id="1_io6nn"]
+[ext_resource type="PackedScene" uid="uid://c2sya6m7v0ta4" path="res://characters/player(trial).tscn" id="1_yywdt"]
+[ext_resource type="PackedScene" uid="uid://t05qgk0exvhk" path="res://Levels/test_floor.tscn" id="2_fmg63"]
+[ext_resource type="PackedScene" uid="uid://rw7cajydbe30" path="res://SkillTreeUI.tscn" id="4_0eokr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0eokr"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_io6nn"]
+font_size = 80
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0eokr"]
+size = Vector2(5.06, 25.625)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_io6nn"]
+size = Vector2(6.16, 49.12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7b0b4"]
+size = Vector2(108.28, 3.08)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vy4eu"]
+size = Vector2(108.44, 4.1)
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(-118, -41)
+script = ExtResource("1_io6nn")
+
+[node name="Player(Trial)" parent="." instance=ExtResource("1_yywdt")]
+z_index = 1
+position = Vector2(127, 41)
+scale = Vector2(2, 1.98971)
+motion_mode = 1
+
+[node name="Camera2D" type="Camera2D" parent="Player(Trial)"]
+position = Vector2(85, -13)
+zoom = Vector2(0.4, 0.4)
+
+[node name="TestFloor" parent="." instance=ExtResource("2_fmg63")]
+position = Vector2(200, 19)
+scale = Vector2(1, 23.6507)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+modulate = Color(1, 0, 0, 1)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -370.0
+offset_right = 93.0
+grow_vertical = 0
+value = 100.0
+fill_mode = 3
+
+[node name="SoulCounter" type="Label" parent="CanvasLayer"]
+offset_right = 110.0
+offset_bottom = 49.0
+text = "Souls: 0
+"
+label_settings = SubResource("LabelSettings_0eokr")
+
+[node name="SkillTreeUI" parent="CanvasLayer" instance=ExtResource("4_0eokr")]
+
+[node name="WinLabel" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = -238.0
+offset_top = -472.0
+offset_right = 273.0
+offset_bottom = -346.0
+text = "YOU WIN! :)))"
+label_settings = SubResource("LabelSettings_io6nn")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
+collision_layer = 512
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-2365, -27.75)
+scale = Vector2(100, 100)
+shape = SubResource("RectangleShape2D_0eokr")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2658, 3)
+scale = Vector2(50, 50)
+shape = SubResource("RectangleShape2D_io6nn")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(106, -1318)
+scale = Vector2(50, 50)
+shape = SubResource("RectangleShape2D_7b0b4")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(117, 1342.5)
+scale = Vector2(50, 50)
+shape = SubResource("RectangleShape2D_vy4eu")

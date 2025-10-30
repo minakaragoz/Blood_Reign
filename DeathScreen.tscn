@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7kocwgkm2ilo"]
+
+[ext_resource type="Script" uid="uid://i8hbubxnydfy" path="res://death_screen.gd" id="1_58ct5"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_58ct5")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.035
+offset_left = 502.0
+offset_top = 104.0
+offset_right = 591.0
+offset_bottom = 114.32
+text = "You Died :("
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 496.0
+offset_top = 208.0
+offset_right = 597.0
+offset_bottom = 258.0
+text = "Start Again?"

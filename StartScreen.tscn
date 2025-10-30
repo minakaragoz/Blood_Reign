@@ -1,0 +1,70 @@
+[gd_scene load_steps=4 format=3 uid="uid://csth6rvbndw0q"]
+
+[ext_resource type="Texture2D" uid="uid://bsblbm24ltjgu" path="res://sprites/FrontIdleCompExp.png.webp" id="1_d4clo"]
+[ext_resource type="Script" uid="uid://cmqxg0yqo22lt" path="res://start_screen.gd" id="1_mqr7l"]
+[ext_resource type="Texture2D" uid="uid://dlmdtcgy8dtm5" path="res://sprites/grave4.png.webp" id="2_mqr7l"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_mqr7l")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Controls:
+blood meter = health
+Arrows - Move
+Space - Bite (replenishs blood meter)
+Shift - Dash attack (doesn't replenish, costs blood)"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 492.0
+offset_top = 180.0
+offset_right = 634.0
+offset_bottom = 203.0
+text = "VAMPIRE PROJECT"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 249.0
+offset_right = 711.0
+offset_bottom = 346.0
+text = "Start Game"
+
+[node name="FrontIdleCompExp_png" type="Sprite2D" parent="."]
+position = Vector2(560, 492)
+scale = Vector2(1.66406, 1.53929)
+texture = ExtResource("1_d4clo")
+
+[node name="Grave4_png" type="Sprite2D" parent="."]
+position = Vector2(328, 284)
+scale = Vector2(4.28125, 4.28125)
+texture = ExtResource("2_mqr7l")
+
+[node name="Grave4_png2" type="Sprite2D" parent="."]
+position = Vector2(800, 284)
+scale = Vector2(4.26562, 4.35938)
+texture = ExtResource("2_mqr7l")
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 691.0
+offset_top = 12.0
+offset_right = 1153.0
+offset_bottom = 113.0
+text = "Skills press Z:
+- blood frenzy - use more blood do more damage
+- bat form -  move fast but cant attack and dont drain meter
+- blood bond - convert an enemy to fight for you"
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 0
+offset_left = 399.0
+offset_top = 12.0
+offset_right = 539.0
+offset_bottom = 35.0
+text = "Try to get 30 kills"

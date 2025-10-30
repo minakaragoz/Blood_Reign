@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://nnjmn0f1bcyr"]
+
+[ext_resource type="Texture2D" uid="uid://cuuu8xfrp4v2q" path="res://sprites/pickups/bloodPacket 4.png" id="1_hfmwp"]
+[ext_resource type="Script" uid="uid://72mdm8wovgf3" path="res://Enemy fragments/blood_packages.gd" id="2_5jr8x"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hfmwp"]
+radius = 18.0
+
+[node name="BloodPackages" type="Area2D"]
+script = ExtResource("2_5jr8x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.88, 1.88)
+shape = SubResource("CircleShape2D_hfmwp")
+debug_color = Color(1.50409e-08, 0.0934314, 0.116093, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3, -3)
+scale = Vector2(4.16375, 3.39)
+texture = ExtResource("1_hfmwp")

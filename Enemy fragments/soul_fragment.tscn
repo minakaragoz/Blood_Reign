@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvyh6wgq4av7k"]
+
+[ext_resource type="Script" uid="uid://dyd72gvxpyhcw" path="res://Enemy fragments/soul_fragment.gd" id="1_xi1lg"]
+[ext_resource type="Texture2D" uid="uid://cw7es760jbie1" path="res://sprites/pickups/soulFrag 4.png" id="2_uag2g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h1ai4"]
+
+[node name="SoulFragment" type="Area2D" groups=["soul_fragment"]]
+script = ExtResource("1_xi1lg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2.28, 2.92)
+texture = ExtResource("2_uag2g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2.28, 2.08)
+shape = SubResource("CircleShape2D_h1ai4")
+debug_color = Color(0.738579, 0.645185, 0.187383, 0.42)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
