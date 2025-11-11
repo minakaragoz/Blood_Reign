@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://bhdc16wy3d62j"]
 
-[ext_resource type="Script" uid="uid://yudn5ulh1a56" path="res://bomb_trap.gd" id="1_pl7ug"]
+[ext_resource type="Script" uid="uid://yudn5ulh1a56" path="res://Traps/bomb_trap.gd" id="1_pl7ug"]
 [ext_resource type="Texture2D" uid="uid://cxer8ifm1rpl8" path="res://sprites/bombAnimation.png.webp" id="2_icech"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_icech"]

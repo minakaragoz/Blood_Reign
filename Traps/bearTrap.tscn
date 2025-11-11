@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dvrqrim3rhvb7"]
 
-[ext_resource type="Script" uid="uid://df2x0pul3upu5" path="res://trap.gd" id="1_kd1db"]
+[ext_resource type="Script" uid="uid://df2x0pul3upu5" path="res://Traps/trap.gd" id="1_kd1db"]
 [ext_resource type="Texture2D" uid="uid://cl00j6pbnr17w" path="res://sprites/beartrapAnimation.png.webp" id="2_gbeof"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w2pp3"]
