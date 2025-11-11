@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://dvrqrim3rhvb7"]
+
+[ext_resource type="Script" uid="uid://df2x0pul3upu5" path="res://trap.gd" id="1_kd1db"]
+[ext_resource type="Texture2D" uid="uid://cl00j6pbnr17w" path="res://sprites/beartrapAnimation.png.webp" id="2_gbeof"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w2pp3"]
+radius = 4.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycvli"]
+atlas = ExtResource("2_gbeof")
+region = Rect2(0, 0, 37, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bb1ps"]
+atlas = ExtResource("2_gbeof")
+region = Rect2(37, 0, 37, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysbqr"]
+atlas = ExtResource("2_gbeof")
+region = Rect2(74, 0, 37, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6sv2t"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycvli")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bb1ps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ysbqr")
+}],
+"loop": false,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[node name="BearTrap" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("1_kd1db")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+z_index = 1
+position = Vector2(0, 7)
+scale = Vector2(0.691815, 0.672827)
+shape = SubResource("CircleShape2D_w2pp3")
+
+[node name="Timer" type="Timer" parent="Area2D"]
+
+[node name="ResetTimer" type="Timer" parent="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_6sv2t")
+animation = &"new_animation"
+frame = 2
+frame_progress = 1.0
+speed_scale = 5.0
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="timeout" from="Area2D/Timer" to="Area2D" method="_on_timer_timeout"]
+[connection signal="timeout" from="Area2D/ResetTimer" to="Area2D" method="_on_reset_timer_timeout"]
