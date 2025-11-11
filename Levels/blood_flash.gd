@@ -1,10 +1,10 @@
 extends Control
 
-@export var trigger_threshold := 40.0   # yüzde 40'tan itibaren başlasın
-@export var max_alpha := 0.6            # en fazla bu kadar kırmızı
-@export var fade_speed := 2.0           # geçiş hızı
-@export var edge_thickness := 150       # kenar kalınlığı
-@export var edge_color := Color(0.4, 0, 0, 0)  # 🍷 vişne kırmızısı
+@export var trigger_threshold := 40.0   # starts from 40%
+@export var max_alpha := 0.6            # max reddness
+@export var fade_speed := 2.0           # transition speed
+@export var edge_thickness := 150       # edge thickness
+@export var edge_color := Color(0.4, 0, 0, 0)  # dark red
 
 var blood_bar: ProgressBar
 var flash_rects: Array[TextureRect] = []
