@@ -120,6 +120,12 @@ func _physics_process(delta):
 		else:
 			current_attack_type = "bite"
 		print("Current attack:", current_attack_type)
+		# --- Reset old attack visuals when switching ---
+		bite_sprite.visible = false
+		claw_sprite.visible = false
+		bite_sprite.stop()
+		claw_sprite.stop()
+
 
 	# --- Handle Dash ---
 	if is_dashing:
@@ -303,7 +309,7 @@ func _on_bite_animation_finished():
 func _on_claw_animation_finished():
 	claw_sprite.stop()
 	claw_sprite.visible = false
-
+	claw_area.monitoring = false
 func _on_player_death():
 	GlobalData.kill_count = 0
 	for skill in GlobalData.purchased_skills.keys():
