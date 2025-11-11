@@ -326,7 +326,7 @@ func _flash_damage():
 	sprite_side.modulate = Color(1, 1, 1)
 
 func _spawn_random_grass():
-	if randi() % 10 != 0:  #not all frames onlyy 10 percent
+	if randi() % 60 != 0:  #not all frames onlyy 60 percent
 		return
 	
 	var grass = GRASS_SCENE.instantiate()

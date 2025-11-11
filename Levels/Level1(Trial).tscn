@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://t6dlrmmf7le5"]
+[gd_scene load_steps=13 format=3 uid="uid://t6dlrmmf7le5"]
 
 [ext_resource type="Script" uid="uid://cle6gqbmkjmyt" path="res://Levels/level_1(trial).gd" id="1_io6nn"]
 [ext_resource type="PackedScene" uid="uid://c2sya6m7v0ta4" path="res://characters/player(trial).tscn" id="1_yywdt"]
 [ext_resource type="PackedScene" uid="uid://t05qgk0exvhk" path="res://Levels/test_floor.tscn" id="2_fmg63"]
 [ext_resource type="PackedScene" uid="uid://rw7cajydbe30" path="res://SkillTreeUI.tscn" id="4_0eokr"]
 [ext_resource type="Script" uid="uid://tdydnqeamubo" path="res://Levels/blood_flash.gd" id="5_io6nn"]
+[ext_resource type="Script" uid="uid://d341stdijnt8a" path="res://Levels/grass_spawner.gd" id="6_7b0b4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0eokr"]
 font_size = 40
@@ -106,3 +107,7 @@ shape = SubResource("RectangleShape2D_7b0b4")
 position = Vector2(117, 1342.5)
 scale = Vector2(50, 50)
 shape = SubResource("RectangleShape2D_vy4eu")
+
+[node name="GrassSpawner" type="Node2D" parent="."]
+visible = false
+script = ExtResource("6_7b0b4")
