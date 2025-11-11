@@ -62,6 +62,15 @@ text = "Souls: 0
 "
 label_settings = SubResource("LabelSettings_0eokr")
 
+[node name="BloodFlash" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_io6nn")
+
 [node name="SkillTreeUI" parent="CanvasLayer" instance=ExtResource("4_0eokr")]
 
 [node name="WinLabel" type="Label" parent="CanvasLayer"]
@@ -72,13 +81,6 @@ offset_right = 273.0
 offset_bottom = -346.0
 text = "YOU WIN! :)))"
 label_settings = SubResource("LabelSettings_io6nn")
-
-[node name="BloodFlash" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("5_io6nn")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 visible = false
