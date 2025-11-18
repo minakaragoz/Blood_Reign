@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6ldebr2bawsx"
-path="res://.godot/imported/claw_slash.png-d41af01216b7c91dff6138dfe2e279dc.ctex"
+uid="uid://bdwcg3qmt7ra7"
+path="res://.godot/imported/soulFrag 5.png-7db804657891c851446a13892cb8bc79.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/abilityAnimations/claw_slash.png"
-dest_files=["res://.godot/imported/claw_slash.png-d41af01216b7c91dff6138dfe2e279dc.ctex"]
+source_file="res://sprites/pickups/soulFrag 5.png"
+dest_files=["res://.godot/imported/soulFrag 5.png-7db804657891c851446a13892cb8bc79.ctex"]
 
 [params]
 

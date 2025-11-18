@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://t05qgk0exvhk"]
+[gd_scene load_steps=31 format=3 uid="uid://t05qgk0exvhk"]
 
 [ext_resource type="Texture2D" uid="uid://eyijxgbosjn4" path="res://sprites/smallRedFLowers.png" id="1_3h1kv"]
 [ext_resource type="Texture2D" uid="uid://dtv570xvhpbh4" path="res://sprites/purpleFlower2.png" id="2_12kcj"]
@@ -17,7 +17,6 @@
 [ext_resource type="Texture2D" uid="uid://cybpcbduuod0h" path="res://sprites/backgroundPlant1.png.webp" id="15_rpxpr"]
 [ext_resource type="Texture2D" uid="uid://5krmqev0c0vo" path="res://sprites/grave2.png.webp" id="16_pl4ub"]
 [ext_resource type="Texture2D" uid="uid://b774mo0tdex32" path="res://sprites/backgroundBush.png.webp" id="17_alq3g"]
-[ext_resource type="PackedScene" uid="uid://fifrucu177nd" path="res://grass_spawner.tscn" id="18_kspy2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xtfsk"]
 size = Vector2(9.92648, 10.1736)
@@ -607,6 +606,3 @@ texture = ExtResource("5_nnnyf")
 position = Vector2(-1986.14, 45.71)
 scale = Vector2(5.85714, 0.360317)
 texture = ExtResource("5_nnnyf")
-
-[node name="GrassSpawner" parent="." instance=ExtResource("18_kspy2")]
-position = Vector2(-1.19047, 0.675676)

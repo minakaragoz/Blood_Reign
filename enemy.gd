@@ -13,12 +13,6 @@ signal enemy_died
 @export var max_health: int = 100
 
 # ------------------------------
-# Loot scenes
-# ------------------------------
-const SOUL_SCENE = preload("res://Enemy fragments/soul_fragment.tscn") #! added
-const BLOOD_SCENE = preload("res://Enemy fragments/blood_packages.tscn") #! added
-
-# ------------------------------
 # Internal state
 # ------------------------------
 var roam_dir: Vector2 = Vector2.ZERO
@@ -32,7 +26,6 @@ var ally_attack_cooldown := 0.0
 var attackTimer = Timer.new()
 @onready var sprite = $Sprite2D
 
-var last_hit_type: String = "" #! added
 # ------------------------------
 # Ready
 # ------------------------------
@@ -197,38 +190,26 @@ func convert_to_ally(player_node: Node) -> void:
 # ------------------------------
 # Damage & death
 # ------------------------------
-func take_damage(amount: int, attack_type := "bite") -> void:
+func take_damage(amount: int) -> void:
 	if dead:
 		return
-	last_hit_type = attack_type #!added
+	_flash_damage()
 	health -= amount
 	if health <= 0:
 		die()
+		
+func _flash_damage():
+	# Change all sprites to red
+	sprite.modulate = Color(1, 0, 0)
+	# Wait a short time, then reset to white
+	await get_tree().create_timer(0.15).timeout
+	sprite.modulate = Color(1, 1, 1)
 
+
+
+	
 func die() -> void:
 	dead = true
 	velocity = Vector2.ZERO
-	_drop_loot() #! added
 	emit_signal("enemy_died")
 	queue_free()
-
-# ------------------------------
-# Drop logic
-# ------------------------------
-func _drop_loot() -> void: #! added
-	if last_hit_type == "bite":
-		if SOUL_SCENE:
-			var soul = SOUL_SCENE.instantiate()
-			soul.global_position = global_position
-			get_parent().add_child(soul)
-	elif last_hit_type == "claw":
-		if BLOOD_SCENE:
-			var offsets = [
-				Vector2(-24, -16),
-				Vector2(24, -8),
-				Vector2(0, 24)
-			]
-			for offset in offsets:
-				var blood = BLOOD_SCENE.instantiate()
-				blood.global_position = global_position + offset + Vector2(randf_range(-4, 4), randf_range(-4, 4))
-				get_parent().add_child(blood)
