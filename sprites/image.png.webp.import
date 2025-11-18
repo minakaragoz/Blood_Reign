@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6hdjrwlwk6xs"
-path="res://.godot/imported/purpleFlower1 3.png-d493528c416a6fd7d08c2c467391fee3.ctex"
+uid="uid://yhydjp4dvumk"
+path="res://.godot/imported/image.png.webp-13f908fadf14efa8e380817bef4d75e8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/purpleFlower1 3.png"
-dest_files=["res://.godot/imported/purpleFlower1 3.png-d493528c416a6fd7d08c2c467391fee3.ctex"]
+source_file="res://sprites/image.png.webp"
+dest_files=["res://.godot/imported/image.png.webp-13f908fadf14efa8e380817bef4d75e8.ctex"]
 
 [params]
 

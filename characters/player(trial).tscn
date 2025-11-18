@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://c2sya6m7v0ta4"]
+[gd_scene load_steps=25 format=3 uid="uid://c2sya6m7v0ta4"]
 
 [ext_resource type="Script" uid="uid://dkkpp5iymlhre" path="res://characters/player(trial).gd" id="1_mhsww"]
 [ext_resource type="Texture2D" uid="uid://bsblbm24ltjgu" path="res://sprites/FrontIdleCompExp.png.webp" id="2_0ayws"]
@@ -6,8 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://slehjc4hlap4" path="res://sprites/suckersBiteAnimation.png.webp" id="4_2ymvy"]
 [ext_resource type="Texture2D" uid="uid://bgk0ybdsfapku" path="res://sprites/BackStillTemp.png.webp" id="4_ts6gx"]
 [ext_resource type="Texture2D" uid="uid://1dio7epcipct" path="res://sprites/SideWalkTemp.png.webp" id="5_2ymvy"]
-[ext_resource type="Script" uid="uid://c68khc1lwb3fg" path="res://Enemy fragments/claw_area.gd" id="7_ok1p3"]
-[ext_resource type="Texture2D" uid="uid://b6ldebr2bawsx" path="res://sprites/abilityAnimations/claw_slash.png" id="8_wjv4q"]
+[ext_resource type="Texture2D" uid="uid://c33nv5xe4baqu" path="res://sprites/tempBatSprite.png" id="7_ok1p3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jisgs"]
 size = Vector2(35.4955, 26.1307)
@@ -115,19 +114,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ymvy"]
 size = Vector2(61, 139)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_wjv4q"]
-radius = 97.5141
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ne2iw"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("8_wjv4q")
-}],
-"loop": false,
-"name": &"default",
-"speed": 5.0
-}]
+[sub_resource type="SpriteFrames" id="SpriteFrames_ok1p3"]
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 512
@@ -177,17 +164,11 @@ visible = false
 position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_2ymvy")
 
-[node name="ClawArea" type="Area2D" parent="."]
-collision_layer = 32
-collision_mask = 4
-script = ExtResource("7_ok1p3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ClawArea"]
+[node name="BatSprite" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(14, -4)
-shape = SubResource("CircleShape2D_wjv4q")
+position = Vector2(5.25001, -14.875)
+scale = Vector2(3.10938, 2.80469)
+texture = ExtResource("7_ok1p3")
 
-[node name="ClawSprite" type="AnimatedSprite2D" parent="ClawArea"]
-position = Vector2(40, -8)
-scale = Vector2(0.58195, 0.443267)
-sprite_frames = SubResource("SpriteFrames_ne2iw")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ok1p3")

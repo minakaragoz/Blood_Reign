@@ -11,8 +11,6 @@ func _ready():
 	spawn_enemy(_get_random_spawn_pos())
 	spawn_enemy(_get_random_spawn_pos())
 	skill_tree.visible = false
-	var player = get_node("Player(Trial)")  # player node
-	player.grass_enabled = true
 
 func spawn_enemy(pos: Vector2):
 	var enemy = enemy_scene.instantiate()

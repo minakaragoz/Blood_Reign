@@ -1,19 +1,15 @@
-[gd_scene load_steps=15 format=3 uid="uid://t6dlrmmf7le5"]
+[gd_scene load_steps=13 format=3 uid="uid://t6dlrmmf7le5"]
 
 [ext_resource type="Script" uid="uid://cle6gqbmkjmyt" path="res://Levels/level_1(trial).gd" id="1_io6nn"]
 [ext_resource type="PackedScene" uid="uid://c2sya6m7v0ta4" path="res://characters/player(trial).tscn" id="1_yywdt"]
 [ext_resource type="PackedScene" uid="uid://t05qgk0exvhk" path="res://Levels/test_floor.tscn" id="2_fmg63"]
 [ext_resource type="PackedScene" uid="uid://rw7cajydbe30" path="res://SkillTreeUI.tscn" id="4_0eokr"]
-[ext_resource type="Script" uid="uid://tdydnqeamubo" path="res://Levels/blood_flash.gd" id="5_io6nn"]
-[ext_resource type="PackedScene" uid="uid://fifrucu177nd" path="res://grass_spawner.tscn" id="6_vty67"]
-[ext_resource type="PackedScene" uid="uid://dvrqrim3rhvb7" path="res://Traps/bearTrap.tscn" id="7_vty67"]
-[ext_resource type="PackedScene" uid="uid://bhdc16wy3d62j" path="res://Traps/bombTrap.tscn" id="8_h4kwq"]
+[ext_resource type="PackedScene" uid="uid://dvrqrim3rhvb7" path="res://bearTrap.tscn" id="5_io6nn"]
+[ext_resource type="PackedScene" uid="uid://6sdioymgr8o0" path="res://spikeTrap.tscn" id="6_7b0b4"]
+[ext_resource type="PackedScene" uid="uid://bhdc16wy3d62j" path="res://bombTrap.tscn" id="7_vy4eu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0eokr"]
 font_size = 40
-
-[sub_resource type="LabelSettings" id="LabelSettings_io6nn"]
-font_size = 80
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0eokr"]
 size = Vector2(5.06, 25.625)
@@ -39,7 +35,7 @@ motion_mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="Player(Trial)"]
 position = Vector2(85, -13)
-zoom = Vector2(0.4, 0.4)
+zoom = Vector2(1.2, 1.2)
 
 [node name="TestFloor" parent="." instance=ExtResource("2_fmg63")]
 position = Vector2(200, 19)
@@ -65,25 +61,7 @@ text = "Souls: 0
 "
 label_settings = SubResource("LabelSettings_0eokr")
 
-[node name="BloodFlash" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("5_io6nn")
-
 [node name="SkillTreeUI" parent="CanvasLayer" instance=ExtResource("4_0eokr")]
-
-[node name="WinLabel" type="Label" parent="CanvasLayer"]
-visible = false
-offset_left = -238.0
-offset_top = -472.0
-offset_right = 273.0
-offset_bottom = -346.0
-text = "YOU WIN! :)))"
-label_settings = SubResource("LabelSettings_io6nn")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 visible = false
@@ -110,10 +88,14 @@ position = Vector2(117, 1342.5)
 scale = Vector2(50, 50)
 shape = SubResource("RectangleShape2D_vy4eu")
 
-[node name="GrassSpawner" parent="." instance=ExtResource("6_vty67")]
+[node name="Trap" parent="." instance=ExtResource("5_io6nn")]
+position = Vector2(1070, 164)
+scale = Vector2(2.84, 2.84)
 
-[node name="BearTrap" parent="." instance=ExtResource("7_vty67")]
-position = Vector2(625, 278)
+[node name="Node2D" parent="." instance=ExtResource("6_7b0b4")]
+position = Vector2(944, 0)
+scale = Vector2(5.16, 5.16)
 
-[node name="Node2D" parent="." instance=ExtResource("8_h4kwq")]
-position = Vector2(-301, 276)
+[node name="Node2D2" parent="." instance=ExtResource("7_vy4eu")]
+position = Vector2(-242, 264)
+scale = Vector2(5.76, 5.76)
