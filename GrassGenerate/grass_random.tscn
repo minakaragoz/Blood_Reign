@@ -1,16 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://crcd54o1xvc0t"]
+[gd_scene load_steps=4 format=3 uid="uid://crcd54o1xvc0t"]
 
-[ext_resource type="Script" uid="uid://dm7364wg8dxej" path="res://GrassGenerate/grass_random.gd" id="1_wfte1"]
 [ext_resource type="Texture2D" uid="uid://bpxmyf3qygeic" path="res://sprites/backgroundPlant2.png.webp" id="2_q0lue"]
 [ext_resource type="Texture2D" uid="uid://cybpcbduuod0h" path="res://sprites/backgroundPlant1.png.webp" id="3_shuct"]
 [ext_resource type="Texture2D" uid="uid://cr7gpkcbpvnae" path="res://sprites/redFlower2 3.png" id="4_dwalm"]
 
 [node name="GrassRandom" type="Node2D"]
-script = ExtResource("1_wfte1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -3
-scale = Vector2(2.6875, 2.25)
 texture = ExtResource("2_q0lue")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
