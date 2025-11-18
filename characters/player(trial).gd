@@ -1,12 +1,7 @@
 extends CharacterBody2D
-
 @onready var bite_area = $BiteArea 
 @onready var bite_sprite = $BiteArea/BiteSprite
-@onready var claw_area = $ClawArea 
-@onready var claw_sprite = $ClawArea/ClawSprite
-
 @export var bite_damage := 20
-@export var claw_damage := 40 #! added
 @export var speed = 400
 @export var dash_speed = 5000
 @export var dash_duration := 0.2
@@ -17,7 +12,7 @@ extends CharacterBody2D
 @onready var sprite_down = $SpriteDown
 @onready var sprite_up = $SpriteUp
 @onready var sprite_side = $SpriteSide
-
+@onready var bat_sprite = $BatSprite
 @export var hunger := 5
 @export var base_bite_damage := 20
 @export var base_hunger := 5
@@ -36,6 +31,7 @@ var blood := max_blood
 @export var dash_cost := 25
 
 var bat_form_active = false
+
 var bonded_enemy: Node = null
 
 # Bite cooldown
@@ -44,43 +40,11 @@ var bite_timer := 0.0
 
 @onready var blood_meter = get_tree().root.get_node("/root/Node2D/CanvasLayer/ProgressBar") 
 
-#--- Grass Generator ---
-@export var grass_enabled := false #just spesific levels can activate
-const GRASS_SCENE = preload("res://GrassGenerate/grass_random.tscn")  
-
-# --- Soul System ---
-var soul_count: int:
-	get:
-		return GlobalData.soul_count
-	set(value):
-		GlobalData.soul_count = value
-
-var soul_label: Label = null #! added
-
-func _cache_hud(): #! added
-	soul_label = get_tree().get_root().find_child("SoulLabel", true, false)
-
-func add_soul(amount: int = 1): #! added
-	soul_count += amount
-	update_soul_ui()
-
-func update_soul_ui(): #! added
-	if soul_label == null:
-		_cache_hud()
-	if soul_label:
-		soul_label.text = "Soul: %d" % soul_count
-
-# --- Attack Type ---
-var current_attack_type := "bite" #! added
-
 func _ready():
 	# Hide bite sprite initially
 	bite_sprite.visible = false
-	bite_sprite.animation_finished.connect(_on_bite_animation_finished)
 	
-	#Hide claw sprite initially
-	claw_sprite.visible = false  
-	claw_sprite.animation_finished.connect(_on_claw_animation_finished)
+	bite_sprite.animation_finished.connect(_on_bite_animation_finished)
 	
 	# Blood drain
 	blood_drain_timer.wait_time = 1.0
@@ -94,7 +58,7 @@ func _on_blood_drain_tick():
 	blood_meter.value = blood
 
 func _physics_process(delta):
-	# Timers
+	# Tick down timers
 	if bite_timer > 0.0:
 		bite_timer -= delta
 	if cooldown_timer > 0.0:
@@ -113,26 +77,13 @@ func _physics_process(delta):
 	if input_direction != Vector2.ZERO:
 		last_facing = input_direction.normalized()
 
-	# --- Attack switching (Q key) ---
-	if Input.is_action_just_pressed("switch_attack"): #! added
-		if current_attack_type == "bite":
-			current_attack_type = "claw"
-		else:
-			current_attack_type = "bite"
-		print("Current attack:", current_attack_type)
-		# --- Reset old attack visuals when switching ---
-		bite_sprite.visible = false
-		claw_sprite.visible = false
-		bite_sprite.stop()
-		claw_sprite.stop()
-
-
-	# --- Handle Dash ---
+	# Handle dash
 	if is_dashing:
 		velocity = dash_direction * dash_speed
 		dash_timer -= delta
 		$DashArea.monitoring = true
 
+		# Damage enemies in dash
 		for body in $DashArea.get_overlapping_bodies():
 			if body.is_in_group("enemies") and body not in dash_hit_enemies:
 				if body.has_method("take_damage"):
@@ -144,6 +95,7 @@ func _physics_process(delta):
 			dash_hit_enemies.clear()
 			$DashArea.monitoring = false
 	else:
+		# Start dash if pressed and enough blood
 		if Input.is_action_just_pressed("dash") and cooldown_timer <= 0.0 and blood_meter.value >= dash_cost:
 			is_dashing = true
 			dash_direction = input_direction.normalized() if input_direction != Vector2.ZERO else last_facing
@@ -153,22 +105,25 @@ func _physics_process(delta):
 			blood_meter.value = blood
 			$DashArea.monitoring = true
 		else:
+			# Normal movement
 			velocity = input_direction * speed
 
-	# --- Bite/Claw input (Space key shared) ---
-	if Input.is_action_just_pressed("attack"): #! added
-		if current_attack_type == "bite":
-			_do_bite(input_direction)
-		elif current_attack_type == "claw":
-			_do_claw(input_direction)
+	# Update Bite Area position
+	if input_direction != Vector2.ZERO:
+		$BiteArea.position = input_direction.normalized() * 16
+		$BiteArea.rotation = input_direction.angle()
 
-	# Sprint
+	# Handle Bite
+	if Input.is_action_just_pressed("bite"):
+		_do_bite(input_direction)
+
+	# Handle Sprint
 	if Input.is_action_just_pressed("Sprint"):
 		speed = 600
 	elif Input.is_action_just_released("Sprint"):
 		speed = 400
 
-	# Player death
+	# Handle player death
 	if blood <= 0:
 		_on_player_death()
 
@@ -179,14 +134,10 @@ func _physics_process(delta):
 
 	_update_sprite_direction(input_direction)
 	move_and_slide()
-	
-	#Grass generate behind player
-	if grass_enabled and input_direction != Vector2.ZERO:
-			_spawn_random_grass()
 
-# --- Bite ---
 func _do_bite(_direction: Vector2):
 	if bite_timer > 0.0:
+		# Flash red to indicate cooldown
 		bite_sprite.modulate = Color(1,0,0)
 		bite_sprite.visible = true
 		await get_tree().create_timer(0.2).timeout
@@ -195,6 +146,8 @@ func _do_bite(_direction: Vector2):
 		return
 	
 	bite_timer = bite_cooldown
+	
+	# Use last_facing instead of input direction
 	var direction = last_facing
 	if direction == Vector2.ZERO:
 		direction = Vector2.RIGHT
@@ -205,6 +158,7 @@ func _do_bite(_direction: Vector2):
 	bite_area.bite_damage = bite_damage
 	bite_area.monitoring = true
 	
+	# Play bite animation
 	bite_sprite.visible = true
 	bite_sprite.play("default")
 	bite_sprite.flip_h = direction.x < 0
@@ -213,49 +167,25 @@ func _do_bite(_direction: Vector2):
 	await get_tree().create_timer(0.1).timeout
 	for body in bite_area.get_overlapping_bodies():
 		if body.is_in_group("enemies"):
+			# Only convert if there is no bonded enemy
 			if GlobalData.purchased_skills["blood_bond"] and bonded_enemy == null:
 				_convert_enemy_to_ally(body)
 				bonded_enemy = body
 				print("Converted to ally!")
 			elif body.has_method("take_damage"):
-				body.take_damage(bite_damage, "bite") #! modified to include type
+				body.take_damage(bite_damage)
 
 	bite_area.monitoring = false
-
-# --- Claw ---
-func _do_claw(direction: Vector2):
-	if direction == Vector2.ZERO:
-		direction = Vector2.RIGHT
-
-	claw_area.position = direction.normalized() * 16
-	claw_area.rotation = direction.angle()
-	claw_area.player = self
-
-	# --- Claw animasyonu başlat ---
-	claw_sprite.visible = true
-	claw_sprite.play("default")  
-	claw_sprite.flip_h = direction.x < 0
-	claw_sprite.rotation = direction.angle()
-
-	claw_area.monitoring = true
-	await get_tree().create_timer(0.1).timeout
-
-	for body in claw_area.get_overlapping_bodies():
-		if body.is_in_group("enemies") and body.has_method("take_damage"):
-			body.take_damage(claw_damage, "claw")
-
-	claw_area.monitoring = false
-
-
-
-# --- Bat Form ---
 func _activate_bat_form():
 	bat_form_active = true
+	bat_sprite = true
 	var original_speed = speed
 	var original_hunger = hunger
+
 	speed *= 3
 	hunger = 0
 	
+	# Hide normal sprites
 	sprite_down.visible = false
 	sprite_up.visible = false
 	sprite_side.visible = false
@@ -265,33 +195,38 @@ func _activate_bat_form():
 	speed = original_speed
 	hunger = original_hunger
 	bat_form_active = false
+	bat_sprite = false
 	_update_sprite_direction(Vector2.DOWN)
 
 func _convert_enemy_to_ally(enemy):
 	if !enemy or !enemy.is_inside_tree():
 		return
 
+	# Call the Villager's conversion function
 	if enemy.has_method("convert_to_ally"):
 		enemy.convert_to_ally(self)
 		print("Converted to ally!")
 
+		# Reset velocity and movement
 		if enemy.has_method("set_velocity"):
 			enemy.set_velocity(Vector2.ZERO)
 		elif "velocity" in enemy:
 			enemy.velocity = Vector2.ZERO
 
+		# Clear any lingering targets
 		if "current_target" in enemy:
 			enemy.current_target = null
 		if "target_enemy" in enemy:
 			enemy.target_enemy = null
 	else:
 		print("Enemy missing convert_to_ally method")
-
 func _update_sprite_direction(input_direction: Vector2):
 	sprite_down.visible = false
 	sprite_up.visible = false
 	sprite_side.visible = false
+
 	var facing = input_direction if input_direction != Vector2.ZERO else last_facing
+
 	if facing.y < -0.5:
 		sprite_up.visible = true
 	elif facing.y > 0.5:
@@ -305,44 +240,25 @@ func _update_sprite_direction(input_direction: Vector2):
 func _on_bite_animation_finished():
 	bite_sprite.stop()
 	bite_sprite.visible = false
-
-func _on_claw_animation_finished():
-	claw_sprite.stop()
-	claw_sprite.visible = false
-	claw_area.monitoring = false
 func _on_player_death():
 	GlobalData.kill_count = 0
+	# Reset all persistent player state
 	for skill in GlobalData.purchased_skills.keys():
 		GlobalData.purchased_skills[skill] = false
-	get_tree().change_scene_to_file("res://DeathScreen.tscn")
+	
+	# Optionally, reset other stats if you have them
 
+	# Then change scene
+	get_tree().change_scene_to_file("res://DeathScreen.tscn")
+	
 func _flash_damage():
+	# Change all sprites to red
 	sprite_down.modulate = Color(1, 0, 0)
 	sprite_up.modulate = Color(1, 0, 0)
 	sprite_side.modulate = Color(1, 0, 0)
+	
+	# Wait a short time, then reset to white
 	await get_tree().create_timer(0.15).timeout
 	sprite_down.modulate = Color(1, 1, 1)
 	sprite_up.modulate = Color(1, 1, 1)
 	sprite_side.modulate = Color(1, 1, 1)
-
-func _spawn_random_grass():
-	if randi() % 60 != 0:  #not all frames onlyy 60 percent
-		return
-	
-	var grass = GRASS_SCENE.instantiate()
-	
-	# random position next to player
-	var offset = Vector2(randf_range(-32, 32), randf_range(-32, 32))
-	grass.global_position = global_position + offset
-	
-	# random position and size
-	var scale_val = randf_range(0.8, 1.2)
-	grass.scale = Vector2(scale_val, scale_val)
-	grass.rotation = randf_range(0, TAU)
-	
-	get_parent().add_child(grass)
-
-	# % second later dissapear
-	await get_tree().create_timer(5).timeout
-	if grass and grass.is_inside_tree():
-		grass.queue_free()
