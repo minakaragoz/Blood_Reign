@@ -1,0 +1,151 @@
+[gd_scene load_steps=14 format=3 uid="uid://8280noejgwv1"]
+
+[ext_resource type="Script" uid="uid://bxm4jxgphvme0" path="res://final_level.gd" id="1_6uicv"]
+[ext_resource type="PackedScene" uid="uid://bfk2q3fdhmwub" path="res://test_floor_FinalBoss.tscn" id="1_bdlou"]
+[ext_resource type="PackedScene" uid="uid://7plrfi08xwim" path="res://characters/villager.tscn" id="3_celvh"]
+[ext_resource type="PackedScene" uid="uid://c2sya6m7v0ta4" path="res://characters/player(trial).tscn" id="4_6uicv"]
+[ext_resource type="PackedScene" uid="uid://diixqs4gcxxbg" path="res://final_boss.tscn" id="5_p6h35"]
+[ext_resource type="Script" uid="uid://tdydnqeamubo" path="res://Levels/blood_flash.gd" id="6_6uicv"]
+[ext_resource type="PackedScene" uid="uid://rw7cajydbe30" path="res://SkillTreeUI.tscn" id="7_p6h35"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0wel0"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_42lth"]
+font_size = 80
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_celvh"]
+size = Vector2(0.460001, 28.61)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6uicv"]
+size = Vector2(6.16, 57.88)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p6h35"]
+size = Vector2(119.38, 3.08)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0wel0"]
+size = Vector2(114.08, 4.1)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_6uicv")
+
+[node name="TestFloor" parent="." instance=ExtResource("1_bdlou")]
+scale = Vector2(1.24, 28.4019)
+
+[node name="Player" parent="." instance=ExtResource("4_6uicv")]
+position = Vector2(559, 532)
+scale = Vector2(1.96, 1.96)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(0, 1)
+zoom = Vector2(0.5, 0.5)
+
+[node name="FinalBoss" parent="." instance=ExtResource("5_p6h35")]
+position = Vector2(462, -525)
+scale = Vector2(2.92209, 2.916)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="SoulCounter" type="Label" parent="CanvasLayer"]
+offset_top = 74.0
+offset_right = 146.0
+offset_bottom = 187.0
+text = "Souls: 0
+"
+label_settings = SubResource("LabelSettings_0wel0")
+
+[node name="BloodFlash" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_6uicv")
+
+[node name="SkillTreeUI" parent="CanvasLayer" instance=ExtResource("7_p6h35")]
+visible = false
+
+[node name="WinLabel" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = -238.0
+offset_top = -472.0
+offset_right = 273.0
+offset_bottom = -346.0
+text = "YOU WIN! :)))"
+label_settings = SubResource("LabelSettings_42lth")
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+modulate = Color(1, 0, 0, 1)
+offset_right = 1167.0
+offset_bottom = 73.0
+value = 100.0
+
+[node name="Villager" parent="." instance=ExtResource("3_celvh")]
+position = Vector2(-1739, -444)
+
+[node name="Villager2" parent="." instance=ExtResource("3_celvh")]
+position = Vector2(-939, -468)
+
+[node name="Villager3" parent="." instance=ExtResource("3_celvh")]
+position = Vector2(-229, -501)
+
+[node name="Villager4" parent="." instance=ExtResource("3_celvh")]
+position = Vector2(1183, -508)
+
+[node name="Villager5" parent="." instance=ExtResource("3_celvh")]
+position = Vector2(1812, -474)
+
+[node name="Villager6" parent="." instance=ExtResource("3_celvh")]
+position = Vector2(2407, -481)
+
+[node name="Villager7" parent="." instance=ExtResource("3_celvh")]
+position = Vector2(3022, -468)
+
+[node name="Villager8" parent="." instance=ExtResource("3_celvh")]
+position = Vector2(-1621, 1445)
+
+[node name="Villager9" parent="." instance=ExtResource("3_celvh")]
+position = Vector2(-831, 1411)
+
+[node name="Villager10" parent="." instance=ExtResource("3_celvh")]
+position = Vector2(-74, 1391)
+
+[node name="Villager11" parent="." instance=ExtResource("3_celvh")]
+position = Vector2(764, 1391)
+
+[node name="Villager12" parent="." instance=ExtResource("3_celvh")]
+position = Vector2(1535, 1398)
+
+[node name="Villager13" parent="." instance=ExtResource("3_celvh")]
+position = Vector2(2265, 1425)
+
+[node name="Villager14" parent="." instance=ExtResource("3_celvh")]
+position = Vector2(3001, 1371)
+scale = Vector2(1, 1.00728)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
+position = Vector2(450, 276)
+collision_layer = 512
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-2745, 121.5)
+scale = Vector2(100, 100)
+shape = SubResource("RectangleShape2D_celvh")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(3113, 46.9999)
+scale = Vector2(50, 50)
+shape = SubResource("RectangleShape2D_6uicv")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(221.5, -1430)
+scale = Vector2(50, 50)
+shape = SubResource("RectangleShape2D_p6h35")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(138, 1578)
+scale = Vector2(50, 50)
+shape = SubResource("RectangleShape2D_0wel0")

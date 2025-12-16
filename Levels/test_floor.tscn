@@ -59,6 +59,7 @@ size = Vector2(1142.86, 26.6372)
 size = Vector2(1145, 26.7672)
 
 [node name="TestFloor" type="StaticBody2D"]
+position = Vector2(-4, 0)
 scale = Vector2(0.840001, 19.24)
 collision_layer = 2
 collision_mask = 0
@@ -283,6 +284,7 @@ scale = Vector2(5.33333, 0.215385)
 texture = ExtResource("11_yjn3c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = -1
 position = Vector2(-1723.81, -12.9938)
 rotation = 3.14159
 scale = Vector2(122.959, 0.300302)
@@ -290,12 +292,14 @@ shape = SubResource("RectangleShape2D_5cpgq")
 debug_color = Color(0.337255, 0.423529, 0.356863, 1)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+z_index = -1
 position = Vector2(-1726.19, 13.0977)
 scale = Vector2(42.0952, 1)
 shape = SubResource("RectangleShape2D_bbgr6")
 debug_color = Color(0.176471, 0.443137, 0.305882, 1)
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+z_index = -1
 position = Vector2(576.19, 38.5135)
 rotation = 3.14159
 scale = Vector2(44.5515, -1.16009)
@@ -303,47 +307,56 @@ shape = SubResource("RectangleShape2D_kwlbo")
 debug_color = Color(0.337255, 0.423529, 0.356863, 1)
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+z_index = -1
 position = Vector2(-583.928, 38.5135)
 scale = Vector2(25.2381, 1)
 shape = SubResource("RectangleShape2D_e80me")
 debug_color = Color(0.176471, 0.443137, 0.305882, 1)
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
+z_index = -1
 position = Vector2(-1726.19, 38.2017)
 shape = SubResource("RectangleShape2D_xr8jp")
 debug_color = Color(0.337255, 0.423529, 0.356863, 1)
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="."]
+z_index = -1
 position = Vector2(1721.43, 38.5135)
 shape = SubResource("RectangleShape2D_d4253")
 debug_color = Color(0.176471, 0.443137, 0.305882, 1)
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="."]
+z_index = -1
 position = Vector2(1723.81, 12.6299)
 shape = SubResource("RectangleShape2D_aoune")
 debug_color = Color(0.321569, 0.403922, 0.341176, 1)
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="."]
+z_index = -1
 position = Vector2(1732.14, -13.6175)
 shape = SubResource("RectangleShape2D_ls1cj")
 debug_color = Color(0.176471, 0.443137, 0.305882, 1)
 
 [node name="CollisionShape2D9" type="CollisionShape2D" parent="."]
+z_index = -1
 position = Vector2(1729.76, -39.657)
 shape = SubResource("RectangleShape2D_tb22v")
 debug_color = Color(0.321569, 0.403922, 0.341176, 1)
 
 [node name="CollisionShape2D10" type="CollisionShape2D" parent="."]
+z_index = -1
 position = Vector2(573.214, -39.4101)
 shape = SubResource("RectangleShape2D_nuymu")
 debug_color = Color(0.176471, 0.443137, 0.305882, 1)
 
 [node name="CollisionShape2D11" type="CollisionShape2D" parent="."]
+z_index = -1
 position = Vector2(-574.999, -39.4361)
 shape = SubResource("RectangleShape2D_6bqnx")
 debug_color = Color(0.337255, 0.423529, 0.356863, 1)
 
 [node name="CollisionShape2D12" type="CollisionShape2D" parent="."]
+z_index = -1
 position = Vector2(-1716.55, -39.3711)
 shape = SubResource("RectangleShape2D_8ulwi")
 debug_color = Color(0.176471, 0.443137, 0.305882, 1)

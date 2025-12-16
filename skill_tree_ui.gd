@@ -5,10 +5,10 @@ signal skill_purchased
 @export var blood_bond_cost := 10
 @export var bat_form_cost := 10
 
-@onready var frenzy_button = $Panel/VBoxContainer/BloodFrenzy
-@onready var bond_button = $Panel/VBoxContainer/BloodBond
-@onready var bat_button = $Panel/VBoxContainer/BatForm
-@onready var close_button = $Panel/VBoxContainer/CloseButton
+@onready var frenzy_button = $Panel/BloodFrenzy
+@onready var bond_button = $Panel/BloodBond
+@onready var bat_button = $Panel/BatForm
+@onready var close_button = $Panel/CloseButton
 
 func _ready():
 	frenzy_button.pressed.connect(func(): emit_signal("skill_purchased", "blood_frenzy", blood_frenzy_cost))

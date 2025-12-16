@@ -98,7 +98,9 @@ script = ExtResource("1_pl7ug")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="bombTrap"]
 visible = false
+scale = Vector2(1.96, 1.96)
 shape = SubResource("CircleShape2D_icech")
+debug_color = Color(0.976336, 0.129539, 0.211659, 0.42)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="bombTrap"]
 sprite_frames = SubResource("SpriteFrames_7hljj")

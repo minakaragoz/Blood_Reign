@@ -16,7 +16,7 @@ func _on_body_entered(body: Node) -> void:
 
 
 		# Save original speed and apply damage/stop movement
-		if "speed" in body and "blood" in body and "is_dashing" in body and body.is_dashing == false:
+		if "speed" in body and "blood" in body and "is_dashing" in body and body.is_dashing == false and "bat_form_active" in body and body.bat_form_active == false:
 			
 			body.blood = max(body.blood - damage, 0)
 			if body.has_method("_flash_damage"):

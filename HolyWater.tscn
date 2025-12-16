@@ -1,0 +1,85 @@
+[gd_scene load_steps=13 format=3 uid="uid://bomthetoe3ln1"]
+
+[ext_resource type="Texture2D" uid="uid://bqbaptynjjwbq" path="res://sprites/holywater_spin.png" id="1_a2src"]
+[ext_resource type="Script" uid="uid://ctwn1ml0ihlw6" path="res://holy_water.gd" id="1_eyqo3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eyqo3"]
+atlas = ExtResource("1_a2src")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yf36k"]
+atlas = ExtResource("1_a2src")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trt3q"]
+atlas = ExtResource("1_a2src")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tttfp"]
+atlas = ExtResource("1_a2src")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qf8mk"]
+atlas = ExtResource("1_a2src")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_56jc7"]
+atlas = ExtResource("1_a2src")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ii1eo"]
+atlas = ExtResource("1_a2src")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_msfec"]
+atlas = ExtResource("1_a2src")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sh84y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eyqo3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yf36k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trt3q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tttfp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qf8mk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_56jc7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ii1eo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_msfec")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2fg7d"]
+radius = 12.0
+
+[node name="HolyWaterProjectile" type="Area2D"]
+collision_layer = 2048
+priority = 1
+script = ExtResource("1_eyqo3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(5.96046e-08, 0)
+scale = Vector2(4.01625, 3.33424)
+sprite_frames = SubResource("SpriteFrames_sh84y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_2fg7d")

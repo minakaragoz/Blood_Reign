@@ -1,6 +1,6 @@
 extends Area2D
-
-@export var heal_amount := 20
+@export var base_heal_amount := 5
+@export var heal_amount := base_heal_amount
 var collected := false
 
 func _ready():
@@ -9,6 +9,8 @@ func _ready():
 func _on_body_entered(body):
 	if collected:
 		return  
+	if GlobalData.purchased_skills["blood_frenzy_best_claw"]:
+		heal_amount *= 1.15
 	if body.is_in_group("player"):
 		collected = true
 		# players blood meter raise

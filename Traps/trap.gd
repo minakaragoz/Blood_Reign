@@ -24,9 +24,11 @@ func _on_body_entered(body: Node) -> void:
 		sprite.play("new_animation")
 		is_active = true
 		# Save original speed and apply damage/stop movement
-		if "speed" in body and "blood" in body and "is_dashing" in body and body.is_dashing == false:
-			trapped_bodies[body] = body.speed
-			body.speed = 0
+		if "speed" in body and "blood" in body and "is_dashing" in body and body.is_dashing == false and "bat_form_active" in body and body.bat_form_active == false:
+			print("checked correctly")
+			trapped_bodies[body] = body.is_immobilized
+			body.is_immobilized = true
+			
 			body.blood = max(body.blood - damage, 0)
 			if body.has_method("_flash_damage"):
 				body._flash_damage()
@@ -36,8 +38,9 @@ func _on_body_entered(body: Node) -> void:
 		
 		# Restore the player’s speed
 		for b in trapped_bodies.keys():
-			if "speed" in b:
-				b.speed = trapped_bodies[b]
+			if "is_immobilized" in b:
+				b.is_immobilized = false
+				
 		trapped_bodies.clear()
 		is_active = false
 		queue_free()

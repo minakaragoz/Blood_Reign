@@ -12,7 +12,7 @@ func _ready():
 	spawn_enemy(_get_random_spawn_pos())
 	skill_tree.visible = false
 	var player = get_node("Player(Trial)")  # player node
-	player.grass_enabled = true
+
 
 func spawn_enemy(pos: Vector2):
 	var enemy = enemy_scene.instantiate()
@@ -26,15 +26,32 @@ func _get_random_spawn_pos() -> Vector2:
 func _on_enemy_died():
 	GlobalData.kill_count += 1
 	_update_kill_label()
-	if GlobalData.kill_count >= 50:
-		_win_game()
+
+	# --- WIN CONDITION ---
+	if GlobalData.kill_count >= max_enemies:
+		var tree := get_tree()
+		if tree == null:
+			return
+
+		# Safely free remaining enemies
+		for e in tree.get_nodes_in_group("enemies"):
+			if is_instance_valid(e):
+				e.call_deferred("queue_free")
+
+		# Change scene deferred to avoid tree teardown crash
+		tree.call_deferred(
+			"change_scene_to_file",
+			"res://Levels/church_level.tscn"
+		)
 		return
+
+	# --- SPAWN MORE ENEMIES SAFELY ---
 	call_deferred("spawn_enemy", _get_random_spawn_pos())
 	call_deferred("spawn_enemy", _get_random_spawn_pos())
+
 
 func _update_kill_label():
 	kill_label.text = "Souls: %d" % GlobalData.kill_count
-
 func _process(_delta):
 	if Input.is_action_just_pressed("skillTree"): # for example, Z
 		_toggle_skill_tree()
@@ -54,7 +71,7 @@ func _on_skill_purchased(skill_name: String, cost: int):
 	else:
 		print("Not enough souls or already owned")
 func _win_game():
-	print("You Win!")
+	get_tree().change_scene_to_file("res://Levels/church_level.tscn")
 	win_label.text = "YOU WIN!"
 	win_label.visible = true
 	get_tree().paused = true

@@ -1,49 +1,117 @@
-[gd_scene load_steps=8 format=3 uid="uid://7plrfi08xwim"]
+[gd_scene load_steps=18 format=3 uid="uid://7plrfi08xwim"]
 
 [ext_resource type="Script" uid="uid://x3rntlsmsey3" path="res://enemy.gd" id="1_sbtgs"]
-[ext_resource type="Texture2D" uid="uid://bxiejvrsjpjjm" path="res://sprites/purpleFlower1.png" id="2_kyemj"]
-[ext_resource type="Texture2D" uid="uid://grmqxp2fvcf0" path="res://sprites/Screenshot 2025-10-06 at 7.58.08 AM.png" id="3_awxhs"]
+[ext_resource type="Texture2D" uid="uid://b3a3ax1k6wlwk" path="res://sprites/villager_attack.png" id="2_u8w4r"]
+[ext_resource type="Texture2D" uid="uid://k4ojjbm1d1oo" path="res://sprites/villager_idle.png" id="3_awxhs"]
+[ext_resource type="Texture2D" uid="uid://cj7rkfqa0lvsa" path="res://sprites/villager_walk.png" id="4_s4a4w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkbh5"]
+atlas = ExtResource("2_u8w4r")
+region = Rect2(0, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lp07r"]
+atlas = ExtResource("2_u8w4r")
+region = Rect2(64, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_unnik"]
+atlas = ExtResource("2_u8w4r")
+region = Rect2(128, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qy1uc"]
+atlas = ExtResource("2_u8w4r")
+region = Rect2(192, 0, 64, 120)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_io6nn"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_kyemj")
+"texture": SubResource("AtlasTexture_jkbh5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lp07r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_unnik")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qy1uc")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0eokr"]
+size = Vector2(92, 177)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0eokr"]
+radius = 268.287
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p3aow"]
+radius = 13.8077
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y83o0"]
+atlas = ExtResource("4_s4a4w")
+region = Rect2(0, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ip78"]
+atlas = ExtResource("4_s4a4w")
+region = Rect2(64, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x84nf"]
+atlas = ExtResource("4_s4a4w")
+region = Rect2(128, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6vxc"]
+atlas = ExtResource("4_s4a4w")
+region = Rect2(192, 0, 64, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uw0ha"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y83o0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ip78")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x84nf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6vxc")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0eokr"]
-size = Vector2(92, 108)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_0eokr"]
-radius = 268.287
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_p3aow"]
-radius = 11.3421
-
 [node name="Villager" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 4
-collision_mask = 544
+collision_mask = 548
 motion_mode = 1
 script = ExtResource("1_sbtgs")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="villager_attack" type="AnimatedSprite2D" parent="." groups=["enemies"]]
+scale = Vector2(2.04, 2.04)
 sprite_frames = SubResource("SpriteFrames_io6nn")
+frame = 3
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -4)
+visible = false
+position = Vector2(-1, -2.5)
 shape = SubResource("RectangleShape2D_0eokr")
 debug_color = Color(0.861132, 0.279755, 0.584629, 0.42)
 
-[node name="DetectionArea" type="Area2D" parent="." groups=["player"]]
-visible = false
+[node name="DetectionArea" type="Area2D" parent="." groups=["enemies", "player"]]
 position = Vector2(-3, -2)
+scale = Vector2(0.453261, 0.453261)
 collision_layer = 4
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+visible = false
 position = Vector2(1, 0)
 scale = Vector2(11.76, 12.32)
 shape = SubResource("CircleShape2D_0eokr")
@@ -52,6 +120,8 @@ debug_color = Color(0.603165, 0.400838, 0.928255, 0.42)
 [node name="Timer" type="Timer" parent="."]
 
 [node name="AttackArea" type="Area2D" parent="."]
+visible = false
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 scale = Vector2(8.2, 8.08)
@@ -59,8 +129,14 @@ shape = SubResource("CircleShape2D_p3aow")
 debug_color = Color(0.960414, 0.141841, 0.361271, 0.42)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(2.36, 1.96)
+visible = false
+scale = Vector2(2.16, 1.96)
 texture = ExtResource("3_awxhs")
+
+[node name="villager_walk" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_uw0ha")
+frame_progress = 0.632063
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

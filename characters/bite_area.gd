@@ -8,7 +8,7 @@ func _ready():
 
 func _on_body_entered(body):
 	print("BiteArea overlapped:", body.name)
-	if body.is_in_group("enemies"):
+	if (body.is_in_group("enemies") or body.is_in_group("final_boss")):
 		print("Enemy hit:", body.name)
 		if body.has_method("take_damage"):
 			body.take_damage(bite_damage)

@@ -1,0 +1,127 @@
+[gd_scene load_steps=16 format=3 uid="uid://bp7xmxbfhxnqd"]
+
+[ext_resource type="Script" uid="uid://c06aqjutfi7vv" path="res://characters/priest.gd" id="1_fhy20"]
+[ext_resource type="Texture2D" uid="uid://ctxuakj2mckjg" path="res://sprites/priest_throw.png" id="2_aia2w"]
+[ext_resource type="PackedScene" uid="uid://bomthetoe3ln1" path="res://HolyWater.tscn" id="2_k01hq"]
+[ext_resource type="Texture2D" uid="uid://dry4mg21hoala" path="res://sprites/priest_walk.png" id="3_k01hq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0eokr"]
+size = Vector2(55, 212)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0eokr"]
+radius = 268.287
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p3aow"]
+radius = 11.3421
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qtnvp"]
+atlas = ExtResource("2_aia2w")
+region = Rect2(0, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwho3"]
+atlas = ExtResource("2_aia2w")
+region = Rect2(64, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlwy2"]
+atlas = ExtResource("2_aia2w")
+region = Rect2(0, 120, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qi7y"]
+atlas = ExtResource("3_k01hq")
+region = Rect2(0, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0jfc"]
+atlas = ExtResource("3_k01hq")
+region = Rect2(64, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35v2m"]
+atlas = ExtResource("3_k01hq")
+region = Rect2(128, 0, 64, 120)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hde47"]
+atlas = ExtResource("3_k01hq")
+region = Rect2(192, 0, 64, 120)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3dj06"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qtnvp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwho3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlwy2")
+}],
+"loop": false,
+"name": &"throw",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1qi7y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d0jfc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35v2m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hde47")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Priest" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 4
+collision_mask = 544
+motion_mode = 1
+script = ExtResource("1_fhy20")
+projectile_scene = ExtResource("2_k01hq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-10.5, -4)
+shape = SubResource("RectangleShape2D_0eokr")
+debug_color = Color(0.861132, 0.279755, 0.584629, 0.42)
+
+[node name="DetectionArea" type="Area2D" parent="." groups=["player"]]
+position = Vector2(-3, -2)
+scale = Vector2(2, 2)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+visible = false
+position = Vector2(1, 0)
+scale = Vector2(11.76, 12.32)
+shape = SubResource("CircleShape2D_0eokr")
+debug_color = Color(0.603165, 0.400838, 0.928255, 0.42)
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="AttackArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+visible = false
+scale = Vector2(8.2, 8.08)
+shape = SubResource("CircleShape2D_p3aow")
+debug_color = Color(0.960414, 0.141841, 0.361271, 0.42)
+
+[node name="ProjectileSpawn" type="Marker2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["enemies"]]
+position = Vector2(0, -6)
+scale = Vector2(2.33081, 2.26893)
+sprite_frames = SubResource("SpriteFrames_3dj06")
+animation = &"throw"
+frame = 2
+frame_progress = 1.0
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_AnimatedSprite2D_animation_finished"]

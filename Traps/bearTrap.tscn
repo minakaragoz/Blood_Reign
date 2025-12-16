@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cl00j6pbnr17w" path="res://sprites/beartrapAnimation.png.webp" id="2_gbeof"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_w2pp3"]
-radius = 4.0
+radius = 3.21051
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ycvli"]
 atlas = ExtResource("2_gbeof")
@@ -49,7 +49,7 @@ script = ExtResource("1_kd1db")
 visible = false
 z_index = 1
 position = Vector2(0, 7)
-scale = Vector2(0.691815, 0.672827)
+scale = Vector2(2.49181, 2.42342)
 shape = SubResource("CircleShape2D_w2pp3")
 
 [node name="Timer" type="Timer" parent="Area2D"]

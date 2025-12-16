@@ -1,0 +1,679 @@
+[gd_scene load_steps=34 format=3 uid="uid://bfk2q3fdhmwub"]
+
+[ext_resource type="Texture2D" uid="uid://eyijxgbosjn4" path="res://sprites/smallRedFLowers.png" id="1_jl8p8"]
+[ext_resource type="Texture2D" uid="uid://dtv570xvhpbh4" path="res://sprites/purpleFlower2.png" id="2_pb15u"]
+[ext_resource type="Texture2D" uid="uid://b387bp3t2uhg3" path="res://sprites/redFlower2.png" id="3_tsdk4"]
+[ext_resource type="Texture2D" uid="uid://crjowvk47pbno" path="res://sprites/redFlower3.png" id="4_1vs2e"]
+[ext_resource type="Texture2D" uid="uid://bxiejvrsjpjjm" path="res://sprites/purpleFlower1.png" id="5_23ldm"]
+[ext_resource type="Texture2D" uid="uid://bnv5idhecg6ss" path="res://sprites/smallYellowFLowers.png" id="6_t47xv"]
+[ext_resource type="Texture2D" uid="uid://cryqrch12or25" path="res://sprites/redFlower1.png" id="7_fhn0d"]
+[ext_resource type="Texture2D" uid="uid://bpxmyf3qygeic" path="res://sprites/backgroundPlant2.png.webp" id="8_ur0ns"]
+[ext_resource type="Texture2D" uid="uid://o54rqjt81ws0" path="res://sprites/lamp.png" id="11_bgkt6"]
+[ext_resource type="Texture2D" uid="uid://01l5j23g218q" path="res://sprites/house_blue.png" id="13_aqtv0"]
+[ext_resource type="Texture2D" uid="uid://cjkhy2aolp8ym" path="res://sprites/house_brown.png" id="14_jl8p8"]
+[ext_resource type="Texture2D" uid="uid://cybpcbduuod0h" path="res://sprites/backgroundPlant1.png.webp" id="15_j8566"]
+[ext_resource type="Texture2D" uid="uid://b7ifq5tix3v3t" path="res://sprites/house_grey.png" id="15_pb15u"]
+[ext_resource type="PackedScene" path="res://angelFountain.tscn" id="17_aqtv0"]
+[ext_resource type="Texture2D" uid="uid://b774mo0tdex32" path="res://sprites/backgroundBush.png.webp" id="17_gqyer"]
+[ext_resource type="Texture2D" uid="uid://cn141ttojg6wq" path="res://sprites/smallYellowFLowers 3.png" id="17_pb15u"]
+[ext_resource type="PackedScene" uid="uid://fifrucu177nd" path="res://grass_spawner.tscn" id="18_dpger"]
+[ext_resource type="Texture2D" uid="uid://cr7gpkcbpvnae" path="res://sprites/redFlower2 3.png" id="18_tsdk4"]
+[ext_resource type="Texture2D" uid="uid://dr20e14vujgnj" path="res://sprites/redFlower3 3.png" id="19_1vs2e"]
+[ext_resource type="Texture2D" uid="uid://b16up26clysje" path="res://sprites/purpleFlower2 3.png" id="20_tsdk4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xtfsk"]
+size = Vector2(9.92648, 10.1736)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5cpgq"]
+size = Vector2(9.30432, 86.3265)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bbgr6"]
+size = Vector2(27.1663, 25.8004)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kwlbo"]
+size = Vector2(25.7326, 21.9084)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e80me"]
+size = Vector2(45.6132, 25.6757)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xr8jp"]
+size = Vector2(1131.67, 25.7796)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4253"]
+size = Vector2(1140.47, 25.6757)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aoune"]
+size = Vector2(1139.52, 25.868)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ls1cj"]
+size = Vector2(1145.24, 26.4293)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tb22v"]
+size = Vector2(1157.62, 25.8836)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nuymu"]
+size = Vector2(1158.33, 26.5852)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6bqnx"]
+size = Vector2(1142.86, 26.6372)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ulwi"]
+size = Vector2(1145, 26.7672)
+
+[node name="TestFloor" type="StaticBody2D"]
+position = Vector2(560, 332)
+scale = Vector2(0.840001, 19.24)
+collision_layer = 2
+collision_mask = 0
+
+[node name="3" type="CollisionShape2D" parent="."]
+z_index = -1
+position = Vector2(-582.142, 12.6819)
+scale = Vector2(116.408, 2.54591)
+shape = SubResource("RectangleShape2D_xtfsk")
+debug_color = Color(0.309804, 0.329412, 0.368627, 1)
+
+[node name="SmallRedFLowers6" type="Sprite2D" parent="3"]
+position = Vector2(-2.10896, 4.32003)
+scale = Vector2(0.0327512, 0.0573609)
+texture = ExtResource("1_jl8p8")
+
+[node name="PurpleFlower2" type="Sprite2D" parent="3"]
+position = Vector2(-2.31943, -1.70017)
+scale = Vector2(0.0451, 0.0831813)
+texture = ExtResource("2_pb15u")
+
+[node name="RedFlower2" type="Sprite2D" parent="3"]
+position = Vector2(1.15971, -3.90881)
+scale = Vector2(0.0472476, 0.0871537)
+texture = ExtResource("3_tsdk4")
+
+[node name="RedFlower3" type="Sprite2D" parent="3"]
+position = Vector2(0.921329, 3.10941)
+scale = Vector2(0.0507375, 0.0927349)
+texture = ExtResource("4_1vs2e")
+
+[node name="PurpleFlower5" type="Sprite2D" parent="3"]
+position = Vector2(-3.41901, 2.38342)
+scale = Vector2(0.0461738, 0.0857832)
+texture = ExtResource("5_23ldm")
+
+[node name="SmallYellowFLowers2" type="Sprite2D" parent="3"]
+position = Vector2(-4.28665, -3.60691)
+scale = Vector2(0.0424155, 0.0950984)
+texture = ExtResource("6_t47xv")
+
+[node name="RedFlower8" type="Sprite2D" parent="3"]
+position = Vector2(3.18707, -3.01709)
+scale = Vector2(0.0461738, 0.105029)
+texture = ExtResource("7_fhn0d")
+
+[node name="SmallRedFLowers3" type="Sprite2D" parent="3"]
+position = Vector2(-0.240533, -0.921589)
+scale = Vector2(0.0322143, 0.0625647)
+texture = ExtResource("1_jl8p8")
+
+[node name="SmallYellowFLowers5" type="Sprite2D" parent="3"]
+position = Vector2(3.14411, 0.707081)
+scale = Vector2(0.0300667, 0.0645509)
+texture = ExtResource("6_t47xv")
+
+[node name="4" type="CollisionShape2D" parent="."]
+z_index = -1
+position = Vector2(576, 12.7427)
+scale = Vector2(116.408, 2.54591)
+shape = SubResource("RectangleShape2D_xtfsk")
+debug_color = Color(0.231373, 0.25098, 0.282353, 1)
+
+[node name="PurpleFlower9" type="Sprite2D" parent="4"]
+position = Vector2(-2.55996, 2.51054)
+scale = Vector2(0.0365095, 0.0871537)
+texture = ExtResource("2_pb15u")
+
+[node name="RedFlower7" type="Sprite2D" parent="4"]
+position = Vector2(3.48773, 3.13022)
+scale = Vector2(0.0359726, 0.104036)
+texture = ExtResource("3_tsdk4")
+
+[node name="PurpleFlower7" type="Sprite2D" parent="4"]
+position = Vector2(2.30225, -2.08152)
+scale = Vector2(0.0359726, 0.0742435)
+texture = ExtResource("2_pb15u")
+
+[node name="SmallYellowFLowers3" type="Sprite2D" parent="4"]
+position = Vector2(1.0824, 2.39931)
+scale = Vector2(0.0370464, 0.0742435)
+texture = ExtResource("6_t47xv")
+
+[node name="PurpleFlower1" type="Sprite2D" parent="4"]
+position = Vector2(-4.07189, -3.019)
+scale = Vector2(0.0558381, 0.0972038)
+texture = ExtResource("5_23ldm")
+
+[node name="SmallRedFLowers" type="Sprite2D" parent="4"]
+position = Vector2(-1.85769, -2.16001)
+scale = Vector2(0.0432208, 0.077342)
+texture = ExtResource("1_jl8p8")
+
+[node name="RedFlower11" type="Sprite2D" parent="4"]
+position = Vector2(4.15779, 0.0794473)
+scale = Vector2(0.0365095, 0.0635579)
+texture = ExtResource("4_1vs2e")
+
+[node name="SmallYellowFLowers6" type="Sprite2D" parent="4"]
+position = Vector2(0.412343, -3.17789)
+scale = Vector2(0.0493952, 0.0744819)
+texture = ExtResource("6_t47xv")
+
+[node name="1" type="CollisionShape2D" parent="."]
+z_index = -1
+position = Vector2(582.952, -13.0663)
+scale = Vector2(116.408, 2.54591)
+shape = SubResource("RectangleShape2D_xtfsk")
+debug_color = Color(0.309804, 0.329412, 0.368627, 1)
+
+[node name="RedFlower9" type="Sprite2D" parent="1"]
+position = Vector2(-0.1804, -0.858031)
+scale = Vector2(0.0289929, 0.0712642)
+texture = ExtResource("3_tsdk4")
+
+[node name="RedFlower5" type="Sprite2D" parent="1"]
+z_index = 1
+position = Vector2(-3.32451, -2.54231)
+scale = Vector2(0.0526167, 0.0873921)
+texture = ExtResource("7_fhn0d")
+
+[node name="RedFlower6" type="Sprite2D" parent="1"]
+position = Vector2(1.8985, -2.93955)
+scale = Vector2(0.0359726, 0.0742435)
+texture = ExtResource("4_1vs2e")
+
+[node name="PurpleFlower4" type="Sprite2D" parent="1"]
+position = Vector2(-1.6236, 1.79551)
+scale = Vector2(0.0359726, 0.0722573)
+texture = ExtResource("2_pb15u")
+
+[node name="SmallYellowFLowers4" type="Sprite2D" parent="1"]
+position = Vector2(-1.25421, -3.87703)
+scale = Vector2(0.0440262, 0.0732504)
+texture = ExtResource("6_t47xv")
+
+[node name="PurpleFlower8" type="Sprite2D" parent="1"]
+position = Vector2(3.59941, 2.93955)
+scale = Vector2(0.0451, 0.101057)
+texture = ExtResource("5_23ldm")
+
+[node name="SmallRedFLowers4" type="Sprite2D" parent="1"]
+position = Vector2(-4.2351, 2.44698)
+scale = Vector2(0.0343619, 0.0603402)
+texture = ExtResource("1_jl8p8")
+
+[node name="SmallRedFLowers5" type="Sprite2D" parent="1"]
+position = Vector2(1.01368, 3.019)
+scale = Vector2(0.0418786, 0.0821883)
+texture = ExtResource("1_jl8p8")
+
+[node name="SmallYellowFLowers8" type="Sprite2D" parent="1"]
+position = Vector2(3.02385, -3.18393)
+scale = Vector2(0.0257714, 0.0563679)
+texture = ExtResource("6_t47xv")
+
+[node name="2" type="CollisionShape2D" parent="."]
+z_index = -1
+position = Vector2(-576.19, -13.0977)
+scale = Vector2(116.408, 2.54591)
+shape = SubResource("RectangleShape2D_xtfsk")
+debug_color = Color(0.231373, 0.25098, 0.282353, 1)
+
+[node name="RedFlower10" type="Sprite2D" parent="2"]
+position = Vector2(-0.670057, 0.619689)
+scale = Vector2(0.0434893, 0.0891399)
+texture = ExtResource("4_1vs2e")
+
+[node name="RedFlower4" type="Sprite2D" parent="2"]
+position = Vector2(-3.94303, -3.9247)
+scale = Vector2(0.0413417, 0.0723765)
+texture = ExtResource("3_tsdk4")
+
+[node name="SmallYellowFLowers" type="Sprite2D" parent="2"]
+position = Vector2(1.73528, 4.32384)
+scale = Vector2(0.0268452, 0.057361)
+texture = ExtResource("6_t47xv")
+
+[node name="PurpleFlower3" type="Sprite2D" parent="2"]
+position = Vector2(-3.09257, 2.08152)
+scale = Vector2(0.0483214, 0.115894)
+texture = ExtResource("5_23ldm")
+
+[node name="SmallRedFLowers2" type="Sprite2D" parent="2"]
+position = Vector2(0.0515432, -2.8949)
+scale = Vector2(0.0708714, 0.107631)
+texture = ExtResource("1_jl8p8")
+
+[node name="PurpleFlower6" type="Sprite2D" parent="2"]
+position = Vector2(2.74036, -2.54041)
+scale = Vector2(0.0386571, 0.0672919)
+texture = ExtResource("2_pb15u")
+
+[node name="RedFlower12" type="Sprite2D" parent="2"]
+position = Vector2(3.608, 1.55717)
+scale = Vector2(0.0451, 0.10205)
+texture = ExtResource("7_fhn0d")
+
+[node name="SmallYellowFLowers7" type="Sprite2D" parent="2"]
+position = Vector2(1.5291, 0.524352)
+scale = Vector2(0.0354357, 0.0613333)
+texture = ExtResource("6_t47xv")
+
+[node name="BackgroundPlant2_png" type="Sprite2D" parent="."]
+position = Vector2(-774.999, 19.1788)
+scale = Vector2(inf, 0.0736064)
+texture = ExtResource("8_ur0ns")
+
+[node name="Lamp" type="Sprite2D" parent="."]
+position = Vector2(796.428, -11.7983)
+scale = Vector2(5.33333, 0.215385)
+texture = ExtResource("11_bgkt6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1723.81, -12.9938)
+rotation = 3.14159
+scale = Vector2(122.959, 0.300302)
+shape = SubResource("RectangleShape2D_5cpgq")
+debug_color = Color(0.309804, 0.329412, 0.368627, 1)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-1726.19, 13.0977)
+scale = Vector2(42.0952, 1)
+shape = SubResource("RectangleShape2D_bbgr6")
+debug_color = Color(0.231373, 0.25098, 0.282353, 1)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(576.19, 38.5135)
+rotation = 3.14159
+scale = Vector2(44.5515, -1.16009)
+shape = SubResource("RectangleShape2D_kwlbo")
+debug_color = Color(0.309804, 0.329412, 0.368627, 1)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+position = Vector2(-578.571, 38.7214)
+scale = Vector2(25.2381, 1)
+shape = SubResource("RectangleShape2D_e80me")
+debug_color = Color(0.231373, 0.25098, 0.282353, 1)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
+position = Vector2(-1726.19, 38.8254)
+shape = SubResource("RectangleShape2D_xr8jp")
+debug_color = Color(0.309804, 0.329412, 0.368627, 1)
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="."]
+position = Vector2(1721.43, 38.5135)
+shape = SubResource("RectangleShape2D_d4253")
+debug_color = Color(0.231373, 0.25098, 0.282353, 1)
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="."]
+position = Vector2(1723.81, 12.6299)
+shape = SubResource("RectangleShape2D_aoune")
+debug_color = Color(0.309804, 0.329412, 0.368627, 1)
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="."]
+position = Vector2(1725, -13.6175)
+shape = SubResource("RectangleShape2D_ls1cj")
+debug_color = Color(0.231373, 0.25098, 0.282353, 1)
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="."]
+position = Vector2(1719.05, -38.9813)
+shape = SubResource("RectangleShape2D_tb22v")
+debug_color = Color(0.309804, 0.329412, 0.368627, 1)
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="."]
+position = Vector2(561.904, -39.1372)
+shape = SubResource("RectangleShape2D_nuymu")
+debug_color = Color(0.231373, 0.25098, 0.282353, 1)
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="."]
+position = Vector2(-576.19, -39.2931)
+shape = SubResource("RectangleShape2D_6bqnx")
+debug_color = Color(0.309804, 0.329412, 0.368627, 1)
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="."]
+position = Vector2(-1716.55, -39.3711)
+shape = SubResource("RectangleShape2D_8ulwi")
+debug_color = Color(0.231485, 0.249679, 0.281292, 1)
+
+[node name="Lamp2" type="Sprite2D" parent="."]
+position = Vector2(-1264.28, 7.36487)
+scale = Vector2(7.03933, 0.19706)
+texture = ExtResource("11_bgkt6")
+
+[node name="RedFlower2" type="Sprite2D" parent="."]
+position = Vector2(-1590.24, 1.88462)
+scale = Vector2(4.58399, 0.232199)
+texture = ExtResource("3_tsdk4")
+
+[node name="PurpleFlower1" type="Sprite2D" parent="."]
+position = Vector2(-2134.52, 10.2391)
+scale = Vector2(5.62657, 0.326403)
+texture = ExtResource("5_23ldm")
+
+[node name="BackgroundPlant2_png2" type="Sprite2D" parent="."]
+position = Vector2(-2097.62, 35.9148)
+scale = Vector2(3.59915, 0.213483)
+texture = ExtResource("8_ur0ns")
+
+[node name="BackgroundPlant2_png3" type="Sprite2D" parent="."]
+position = Vector2(-1258.93, 18.3451)
+scale = Vector2(5.72917, 0.279106)
+texture = ExtResource("8_ur0ns")
+
+[node name="BackgroundPlant2_png4" type="Sprite2D" parent="."]
+position = Vector2(-1921.43, -8.62786)
+scale = Vector2(7.38095, 0.34979)
+texture = ExtResource("8_ur0ns")
+
+[node name="SmallYellowFLowers" type="Sprite2D" parent="."]
+position = Vector2(-2002.55, 16.3701)
+scale = Vector2(5.18749, 0.233628)
+texture = ExtResource("6_t47xv")
+
+[node name="RedFlower3" type="Sprite2D" parent="."]
+position = Vector2(-1439.45, -10.9948)
+scale = Vector2(4.14583, 0.24987)
+texture = ExtResource("4_1vs2e")
+
+[node name="RedFlower4" type="Sprite2D" parent="."]
+position = Vector2(-273.976, 46.3337)
+scale = Vector2(5.3363, 0.24987)
+texture = ExtResource("4_1vs2e")
+
+[node name="PurpleFlower2" type="Sprite2D" parent="."]
+position = Vector2(-940.046, 42.3836)
+scale = Vector2(3.17857, 0.24987)
+texture = ExtResource("5_23ldm")
+
+[node name="PurpleFlower3" type="Sprite2D" parent="."]
+position = Vector2(-250.166, 31.315)
+scale = Vector2(5.03869, 0.25013)
+texture = ExtResource("2_pb15u")
+
+[node name="BackgroundPlant1_png" type="Sprite2D" parent="."]
+position = Vector2(-789.451, 35.0832)
+scale = Vector2(5.03868, 0.227391)
+texture = ExtResource("15_j8566")
+
+[node name="BackgroundPlant2_png5" type="Sprite2D" parent="."]
+position = Vector2(1644.47, 15.8264)
+scale = Vector2(3.17856, 0.191658)
+texture = ExtResource("8_ur0ns")
+
+[node name="SmallYellowFLowers2" type="Sprite2D" parent="."]
+position = Vector2(-1537.07, -26.921)
+scale = Vector2(5.48512, 0.220634)
+texture = ExtResource("6_t47xv")
+
+[node name="PurpleFlower4" type="Sprite2D" parent="."]
+position = Vector2(346.262, 44.2027)
+scale = Vector2(3.6994, 0.262864)
+texture = ExtResource("2_pb15u")
+
+[node name="BackgroundPlant2_png6" type="Sprite2D" parent="."]
+position = Vector2(364.452, 28.8742)
+scale = Vector2(5.3363, 0.379808)
+texture = ExtResource("8_ur0ns")
+
+[node name="RedFlower5" type="Sprite2D" parent="."]
+position = Vector2(-1433.16, 36.7484)
+scale = Vector2(4.14583, 0.227131)
+texture = ExtResource("4_1vs2e")
+
+[node name="PurpleFlower5" type="Sprite2D" parent="."]
+position = Vector2(1311.9, 5.61331)
+scale = Vector2(5.18749, 0.314839)
+texture = ExtResource("5_23ldm")
+
+[node name="RedFlower6" type="Sprite2D" parent="."]
+position = Vector2(1479.76, 20.1663)
+scale = Vector2(1.98809, 0.123181)
+texture = ExtResource("3_tsdk4")
+
+[node name="SmallYellowFLowers3" type="Sprite2D" parent="."]
+position = Vector2(608.761, 33.9917)
+scale = Vector2(4.07143, 0.181912)
+texture = ExtResource("6_t47xv")
+
+[node name="Lamp4" type="Sprite2D" parent="."]
+position = Vector2(211.905, -34.4595)
+scale = Vector2(5.48136, 0.198877)
+texture = ExtResource("11_bgkt6")
+
+[node name="BackgroundBush_png" type="Sprite2D" parent="."]
+position = Vector2(485.547, -35.499)
+scale = Vector2(2.32073, 0.240385)
+texture = ExtResource("17_gqyer")
+
+[node name="BackgroundBush_png2" type="Sprite2D" parent="."]
+position = Vector2(1651.19, -3.84615)
+scale = Vector2(2.7409, 0.227131)
+texture = ExtResource("17_gqyer")
+
+[node name="BackgroundBush_png3" type="Sprite2D" parent="."]
+position = Vector2(-1435.03, 47.0374)
+scale = Vector2(1.79062, 0.285603)
+texture = ExtResource("17_gqyer")
+
+[node name="BackgroundPlant2_png7" type="Sprite2D" parent="."]
+position = Vector2(1729.97, 4.32796)
+scale = Vector2(0.770832, 0.0892023)
+texture = ExtResource("8_ur0ns")
+
+[node name="BackgroundPlant1_png2" type="Sprite2D" parent="."]
+position = Vector2(-1490.05, -18.4252)
+scale = Vector2(0.648811, 0.0292359)
+texture = ExtResource("15_j8566")
+
+[node name="BackgroundBush_png4" type="Sprite2D" parent="."]
+position = Vector2(1245.45, -46.1268)
+scale = Vector2(1.94818, 0.198025)
+texture = ExtResource("17_gqyer")
+
+[node name="PurpleFlower6" type="Sprite2D" parent="."]
+position = Vector2(1934.95, -16.71)
+scale = Vector2(4.66666, 0.25013)
+texture = ExtResource("2_pb15u")
+
+[node name="SmallYellowFLowers4" type="Sprite2D" parent="."]
+position = Vector2(1934.95, -6.44491)
+scale = Vector2(3.32738, 0.162422)
+texture = ExtResource("6_t47xv")
+
+[node name="RedFlower7" type="Sprite2D" parent="."]
+position = Vector2(1859.35, 9.37942)
+scale = Vector2(5.3363, 0.321336)
+texture = ExtResource("4_1vs2e")
+
+[node name="BackgroundBush_png5" type="Sprite2D" parent="."]
+position = Vector2(1841.75, 22.803)
+scale = Vector2(1.61554, 0.186656)
+texture = ExtResource("17_gqyer")
+
+[node name="PurpleFlower7" type="Sprite2D" parent="."]
+position = Vector2(1453.14, 37.6019)
+scale = Vector2(3.32738, 0.204392)
+texture = ExtResource("2_pb15u")
+
+[node name="SmallYellowFLowers5" type="Sprite2D" parent="."]
+position = Vector2(2057.31, 23.4647)
+scale = Vector2(2.65773, 0.197895)
+texture = ExtResource("6_t47xv")
+
+[node name="RedFlower8" type="Sprite2D" parent="."]
+position = Vector2(1656.12, -32.9283)
+scale = Vector2(7.86607, 0.366814)
+texture = ExtResource("4_1vs2e")
+
+[node name="PurpleFlower8" type="Sprite2D" parent="."]
+position = Vector2(1331.71, -28.5884)
+scale = Vector2(4.81548, 0.2921)
+texture = ExtResource("5_23ldm")
+
+[node name="PurpleFlower9" type="Sprite2D" parent="."]
+position = Vector2(-1986.14, 45.71)
+scale = Vector2(5.85714, 0.360317)
+texture = ExtResource("5_23ldm")
+
+[node name="GrassSpawner" parent="." instance=ExtResource("18_dpger")]
+position = Vector2(-1.19047, 0.675676)
+
+[node name="HouseBlue" type="Sprite2D" parent="."]
+position = Vector2(-83.3332, -34.5634)
+scale = Vector2(1.57308, 0.0720179)
+texture = ExtResource("13_aqtv0")
+
+[node name="HouseBrown" type="Sprite2D" parent="."]
+position = Vector2(-635.713, -34.7713)
+scale = Vector2(1.59296, 0.0725052)
+texture = ExtResource("14_jl8p8")
+
+[node name="HouseGrey" type="Sprite2D" parent="."]
+position = Vector2(510.714, -34.6674)
+scale = Vector2(1.50669, 0.0708038)
+texture = ExtResource("15_pb15u")
+
+[node name="HouseBlue2" type="Sprite2D" parent="."]
+position = Vector2(1020.24, -34.3035)
+scale = Vector2(1.41832, 0.0695167)
+texture = ExtResource("13_aqtv0")
+
+[node name="HouseBrown2" type="Sprite2D" parent="."]
+position = Vector2(2000.83, -34.3003)
+scale = Vector2(1.44101, 0.0644166)
+texture = ExtResource("14_jl8p8")
+
+[node name="HouseGrey2" type="Sprite2D" parent="."]
+position = Vector2(1509.75, -34.2386)
+scale = Vector2(1.40385, 0.0656185)
+texture = ExtResource("15_pb15u")
+
+[node name="HouseBlue3" type="Sprite2D" parent="."]
+position = Vector2(-1850, -34.5634)
+scale = Vector2(1.67613, 0.068802)
+texture = ExtResource("13_aqtv0")
+
+[node name="HouseGrey3" type="Sprite2D" parent="."]
+position = Vector2(-1217.86, -34.8233)
+scale = Vector2(1.59553, 0.0723753)
+texture = ExtResource("15_pb15u")
+
+[node name="HouseGrey4" type="Sprite2D" parent="."]
+position = Vector2(-1753.13, 33.8975)
+scale = Vector2(1.53246, 0.0645465)
+texture = ExtResource("15_pb15u")
+
+[node name="AngelFountain" parent="." instance=ExtResource("17_aqtv0")]
+position = Vector2(-2.38086, -2.39085)
+scale = Vector2(3.28819, 0.128407)
+
+[node name="SmallRedFLowers" type="Sprite2D" parent="."]
+position = Vector2(-1981.38, -49.922)
+scale = Vector2(6.00593, 0.308602)
+texture = ExtResource("1_jl8p8")
+
+[node name="SmallYellowFLowers6" type="Sprite2D" parent="."]
+position = Vector2(-1498.05, -41.2443)
+scale = Vector2(5.70832, 0.327832)
+texture = ExtResource("17_pb15u")
+
+[node name="SmallYellowFLowers7" type="Sprite2D" parent="."]
+position = Vector2(-959.356, -40.6726)
+scale = Vector2(5.3363, 0.308342)
+texture = ExtResource("6_t47xv")
+
+[node name="BackgroundBush_png6" type="Sprite2D" parent="."]
+position = Vector2(187.714, -45.5052)
+scale = Vector2(1.7731, 0.211019)
+texture = ExtResource("17_gqyer")
+
+[node name="BackgroundPlant2_png8" type="Sprite2D" parent="."]
+position = Vector2(-367.69, -34.9293)
+scale = Vector2(6.67559, 0.279106)
+texture = ExtResource("8_ur0ns")
+
+[node name="RedFlower23" type="Sprite2D" parent="."]
+position = Vector2(761.392, -30.7443)
+scale = Vector2(5.56991, 0.211019)
+texture = ExtResource("18_tsdk4")
+
+[node name="RedFlower33" type="Sprite2D" parent="."]
+position = Vector2(1759.52, -45.1663)
+scale = Vector2(6.67558, 0.285603)
+texture = ExtResource("19_1vs2e")
+
+[node name="HouseBlue4" type="Sprite2D" parent="."]
+position = Vector2(-1114.28, 33.6798)
+scale = Vector2(1.52935, 0.0665281)
+texture = ExtResource("13_aqtv0")
+
+[node name="HouseGrey5" type="Sprite2D" parent="."]
+position = Vector2(-509.523, 33.42)
+scale = Vector2(1.54489, 0.0657485)
+texture = ExtResource("15_pb15u")
+
+[node name="HouseBrown3" type="Sprite2D" parent="."]
+position = Vector2(173.944, 33.4062)
+scale = Vector2(1.54503, 0.0630279)
+texture = ExtResource("14_jl8p8")
+
+[node name="HouseBlue5" type="Sprite2D" parent="."]
+position = Vector2(785.713, 33.0561)
+scale = Vector2(1.53885, 0.0631172)
+texture = ExtResource("13_aqtv0")
+
+[node name="HouseGrey6" type="Sprite2D" parent="."]
+position = Vector2(1382.74, 33.0659)
+scale = Vector2(1.49221, 0.065586)
+texture = ExtResource("15_pb15u")
+
+[node name="BackgroundPlant1_png3" type="Sprite2D" parent="."]
+position = Vector2(2072.78, 45.3981)
+scale = Vector2(6.22917, 0.243373)
+texture = ExtResource("15_j8566")
+
+[node name="BackgroundPlant2_png9" type="Sprite2D" parent="."]
+position = Vector2(1636.39, 45.2562)
+scale = Vector2(5.56993, 0.381562)
+texture = ExtResource("8_ur0ns")
+
+[node name="PurpleFlower23" type="Sprite2D" parent="."]
+position = Vector2(1930.52, 40.0707)
+scale = Vector2(3.7738, 0.259615)
+texture = ExtResource("20_tsdk4")
+
+[node name="PurpleFlower10" type="Sprite2D" parent="."]
+position = Vector2(620.237, -46.0499)
+scale = Vector2(6.37798, 0.20764)
+texture = ExtResource("2_pb15u")
+
+[node name="PurpleFlower11" type="Sprite2D" parent="."]
+position = Vector2(-516.666, -48.5447)
+scale = Vector2(5.3363, 0.259875)
+texture = ExtResource("5_23ldm")
+
+[node name="HouseBrown4" type="Sprite2D" parent="."]
+position = Vector2(1985.12, 32.7378)
+scale = Vector2(1.4426, 0.0612656)
+texture = ExtResource("14_jl8p8")
+
+[node name="Lamp3" type="Sprite2D" parent="."]
+position = Vector2(1092.86, 42.6715)
+scale = Vector2(5.93478, 0.164093)
+texture = ExtResource("11_bgkt6")
+
+[node name="Lamp5" type="Sprite2D" parent="."]
+position = Vector2(-128.571, 28.9501)
+scale = Vector2(5.31366, 0.125037)
+texture = ExtResource("11_bgkt6")
+
+[node name="Lamp6" type="Sprite2D" parent="."]
+position = Vector2(-2173.81, -36.0707)
+scale = Vector2(6.60765, 0.185922)
+texture = ExtResource("11_bgkt6")

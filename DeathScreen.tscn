@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c7kocwgkm2ilo"]
+[gd_scene load_steps=3 format=3 uid="uid://c7kocwgkm2ilo"]
 
 [ext_resource type="Script" uid="uid://i8hbubxnydfy" path="res://death_screen.gd" id="1_58ct5"]
+[ext_resource type="Texture2D" uid="uid://2108g6fyfj7k" path="res://sprites/death screen.png" id="2_80igo"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -16,15 +17,21 @@ layout_mode = 1
 anchors_preset = -1
 anchor_bottom = 0.035
 offset_left = 502.0
-offset_top = 104.0
+offset_top = 34.0
 offset_right = 591.0
-offset_bottom = 114.32
+offset_bottom = 44.32
 text = "You Died :("
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 496.0
-offset_top = 208.0
-offset_right = 597.0
-offset_bottom = 258.0
+offset_left = 518.0
+offset_top = 574.0
+offset_right = 619.0
+offset_bottom = 624.0
 text = "Start Again?"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(553, 320)
+scale = Vector2(0.589815, 0.589815)
+texture = ExtResource("2_80igo")
