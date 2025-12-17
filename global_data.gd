@@ -7,13 +7,13 @@ var soul_count := 0
 # skills reset on death
 var purchased_skills = {
 	"blood_frenzy": false, # base skill blood frenzy
-	"blood_bond": true,   # base skill blood bond
+	"blood_bond": false,   # base skill blood bond
 	"bat_form": false,     # base skill bat form
 	
 	"blood_frenzy_better_claw": false, #faster claw attack by 10%, more blood lose by 4%
 	"blood_frenzy_best_claw": false,   #faster claw attack by 20%, blood packets restore 15% more health, more blood loss by 6%
 	"blood_frenzy_better_dash": false, #dashign does 25% more damage, costs 10% more blood
-	"blood_frenzy_best_dash": false,   #dash kills any enemy under 35 health, dash costs 5% more blood
+	"blood_frenzy_best_dash": false,  #dash kills any enemy under 35 health, dash costs 5% more blood
 	"blood_frenzy_max" : false, #20% faster speed, 15% more damage, 10% less max health, 10% more damage taken
 	
 	"blood_bond_second_dps" : false, #have two allies instead of one, ally_attack does 30% more

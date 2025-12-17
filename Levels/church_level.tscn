@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://hf04r3nro8ku"]
+[gd_scene load_steps=15 format=3 uid="uid://hf04r3nro8ku"]
 
 [ext_resource type="Script" uid="uid://b5ushvvm7q46p" path="res://chuch_level.gd" id="1_q3wp2"]
 [ext_resource type="Script" uid="uid://tdydnqeamubo" path="res://Levels/blood_flash.gd" id="2_nudri"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bmuyw10r65ec7" path="res://test_floor_chuch.tscn" id="5_6f8xj"]
 [ext_resource type="PackedScene" uid="uid://dvrqrim3rhvb7" path="res://Traps/bearTrap.tscn" id="6_8onno"]
 [ext_resource type="PackedScene" uid="uid://6sdioymgr8o0" path="res://spikeTrap.tscn" id="7_ojf52"]
+[ext_resource type="AudioStream" uid="uid://b0jcrbp125r6i" path="res://sounds/Copy of old-church-bell.wav" id="8_nudri"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_eicmj"]
 font_size = 40
@@ -118,3 +119,7 @@ scale = Vector2(3.68, 3.68)
 [node name="Node2D" parent="." instance=ExtResource("7_ojf52")]
 position = Vector2(1186, 194)
 scale = Vector2(5.4, 5.4)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_nudri")
+autoplay = true

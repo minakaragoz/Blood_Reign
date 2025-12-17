@@ -5,6 +5,7 @@ extends Node2D
 @onready var skill_tree = $CanvasLayer/SkillTreeUI
 @export var max_enemies := 30
 func _ready():
+	$AudioStreamPlayer2D.finished.connect(func():$AudioStreamPlayer2D.play())
 	skill_tree.skill_purchased.connect(_on_skill_purchased)
 	spawn_enemy(_get_random_spawn_pos())
 	spawn_enemy(_get_random_spawn_pos())

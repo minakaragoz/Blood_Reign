@@ -5,6 +5,7 @@ extends Node2D
 
 
 func _ready():
+	$Music.finished.connect(func():$Music.play())
 	_update_kill_label()
 	skill_tree.skill_purchased.connect(_on_skill_purchased)
 	skill_tree.visible = false

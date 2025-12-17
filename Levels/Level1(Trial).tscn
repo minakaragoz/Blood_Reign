@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://t6dlrmmf7le5"]
+[gd_scene load_steps=17 format=3 uid="uid://t6dlrmmf7le5"]
 
 [ext_resource type="Script" uid="uid://cle6gqbmkjmyt" path="res://Levels/level_1(trial).gd" id="1_io6nn"]
 [ext_resource type="PackedScene" uid="uid://c2sya6m7v0ta4" path="res://characters/player(trial).tscn" id="1_yywdt"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://6sdioymgr8o0" path="res://spikeTrap.tscn" id="8_gx4jg"]
 [ext_resource type="PackedScene" uid="uid://bhdc16wy3d62j" path="res://Traps/bombTrap.tscn" id="8_h4kwq"]
 [ext_resource type="Texture2D" uid="uid://ct8nfdwpcg1eh" path="res://Traps/plank_trap1.png" id="9_h4kwq"]
+[ext_resource type="AudioStream" uid="uid://dq56a4f3rp4b1" path="res://sounds/level music curse me.wav" id="10_gx4jg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0eokr"]
 font_size = 40
@@ -28,7 +29,7 @@ size = Vector2(108.28, 3.08)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vy4eu"]
 size = Vector2(108.44, 4.1)
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 position = Vector2(-118, -41)
 script = ExtResource("1_io6nn")
 
@@ -155,3 +156,7 @@ scale = Vector2(3.76, 3.76)
 [node name="BearTrap4" parent="." instance=ExtResource("7_vty67")]
 position = Vector2(-1695, 221)
 scale = Vector2(3.12, 3.12)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_gx4jg")
+autoplay = true

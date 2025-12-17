@@ -65,7 +65,7 @@ var bonded_enemy: Node = null
 @export var bite_cooldown := 1.25
 var bite_timer := 0.0
 
-@onready var blood_meter = get_tree().root.get_node("/root/Node2D/CanvasLayer/ProgressBar")
+@onready var blood_meter = get_parent().get_node("CanvasLayer/ProgressBar")
 
 
 @export var base_max_allies := 1
@@ -97,6 +97,8 @@ func update_soul_ui():
 
 func _ready():
 	# Hide attack sprites initially
+	if blood_meter == null:
+		push_warning("Blood meter node not found!")
 	sprite_bat.visible = false
 	bite_sprite.visible = false
 	bite_sprite.animation_finished.connect(_on_bite_animation_finished)
