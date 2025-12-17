@@ -203,6 +203,7 @@ collision_layer = 12
 shape = SubResource("CircleShape2D_ibcdr")
 
 [node name="CloseArea" type="Area2D" parent="."]
+z_index = -1
 scale = Vector2(0.590292, 0.590292)
 collision_layer = 12
 

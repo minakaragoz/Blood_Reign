@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvsmk4jeeyfen"]
+
+[ext_resource type="Script" uid="uid://k6jf3unnklo3" path="res://ending.gd" id="1_dmh3q"]
+[ext_resource type="Texture2D" uid="uid://day05i63loi06" path="res://Ending.png" id="2_iggq8"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dmh3q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(580.5, 323)
+scale = Vector2(0.602604, 0.594444)
+texture = ExtResource("2_iggq8")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.827
+anchor_top = -0.828
+anchor_right = -0.827
+anchor_bottom = -0.828
+offset_left = 1426.7
+offset_top = 1056.54
+offset_right = 1491.7
+offset_bottom = 1087.54
+scale = Vector2(3.32, 3.37854)
+text = "Restart"

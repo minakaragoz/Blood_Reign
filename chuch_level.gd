@@ -6,15 +6,14 @@ extends Node2D
 @onready var skill_tree = $CanvasLayer/SkillTreeUI
 
 @export var max_enemies := 20
-
+@export var killed_this_level := 0
 # HARD LOCK to prevent double transitions
 var transitioning := false
 
 
 func _ready():
-	# Reset state when level loads
-	GlobalData.kill_count = 0
 	transitioning = false
+	killed_this_level = 0
 	$AudioStreamPlayer2D.finished.connect(func():$AudioStreamPlayer2D.play())
 		
 		
@@ -55,13 +54,14 @@ func _on_enemy_died():
 		return
 
 	GlobalData.kill_count += 1
+	killed_this_level += 1
 	_update_kill_label()
 	print("Kill count:", GlobalData.kill_count)
 
 	# === FINAL BOSS TRIGGER ===
-	if GlobalData.kill_count >= max_enemies:
+	if killed_this_level >= max_enemies:
 		transitioning = true
-		print("FINAL BOSS TRIGGERED")
+	
 
 		var tree := get_tree()
 		if tree == null:

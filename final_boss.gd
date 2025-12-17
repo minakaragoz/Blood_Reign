@@ -4,13 +4,13 @@ extends CharacterBody2D
 enum BossState { IDLE, RANGED, MELEE, TELEPORT }
 var state: BossState = BossState.IDLE
 var locked := false
-var health := 800
+var health := 1
 var dead := false
 var last_hit_type := ""
 
 # ================= REFERENCES =================
 var player: Node2D
-
+signal boss_died
 @onready var idle_sprite: Sprite2D = $BossIdle
 @onready var shoot_anim: AnimatedSprite2D = $ShootStart
 @onready var slam_anim: AnimatedSprite2D = $SlamAnimation
@@ -208,6 +208,7 @@ func die():
 	locked = true
 	state = BossState.IDLE
 	_show_only(idle_sprite)
+	emit_signal("boss_died")
 	queue_free()
 
 # ================= VISIBILITY =================
