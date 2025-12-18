@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bvsmk4jeeyfen"]
+[gd_scene load_steps=4 format=3 uid="uid://bvsmk4jeeyfen"]
 
 [ext_resource type="Script" uid="uid://k6jf3unnklo3" path="res://ending.gd" id="1_dmh3q"]
 [ext_resource type="Texture2D" uid="uid://day05i63loi06" path="res://Ending.png" id="2_iggq8"]
+[ext_resource type="AudioStream" uid="uid://bfwuopvclir8p" path="res://sounds/1 game over whistle.wav" id="3_iggq8"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -30,3 +31,7 @@ offset_right = 1491.7
 offset_bottom = 1087.54
 scale = Vector2(3.32, 3.37854)
 text = "Restart"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_iggq8")
+autoplay = true

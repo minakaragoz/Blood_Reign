@@ -1,5 +1,7 @@
 extends CharacterBody2D
-
+@onready var bite_sound: AudioStreamPlayer2D = $BiteSound
+@onready var claw_sound: AudioStreamPlayer2D = $ClawSound
+@onready var damage_sound: AudioStreamPlayer2D = $DamageSound
 @onready var bite_area = $BiteArea 
 @onready var bite_sprite = $BiteArea/BiteSprite
 @onready var claw_area = $ClawArea 
@@ -240,6 +242,8 @@ func _do_bite(direction: Vector2):
 		return
 
 	bite_timer = bite_cooldown
+	if bite_sound:
+		bite_sound.play()
 
 	if direction == Vector2.ZERO:
 		direction = Vector2.RIGHT
@@ -283,7 +287,8 @@ func _do_claw(direction: Vector2):
 		return
 
 	claw_timer = claw_cooldown
-
+	if claw_sound:
+		claw_sound.play()
 	# Attack direction fallback
 	if direction == Vector2.ZERO:
 		direction = Vector2.RIGHT
@@ -507,7 +512,8 @@ func _flash_damage():
 	sprite_move_down.modulate = normal_color
 	sprite_move_up.modulate = normal_color
 	sprite_move_side.modulate = normal_color
-	
+	if damage_sound:
+		damage_sound.play()
 	sprite_bat.modulate = normal_color
 	
 func can_take_damage(damage_type: String) -> bool:

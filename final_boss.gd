@@ -4,7 +4,7 @@ extends CharacterBody2D
 enum BossState { IDLE, RANGED, MELEE, TELEPORT }
 var state: BossState = BossState.IDLE
 var locked := false
-var health := 1
+var health := 600
 var dead := false
 var last_hit_type := ""
 
@@ -26,7 +26,7 @@ signal boss_died
 @export var bullet_scene := preload("res://Bullet.tscn")
 
 # ================= SLAM =================
-@export var slam_damage := 40
+@export var slam_damage := 55
 @export var slam_anim_time := 1.2
 var slam_ready := true
 

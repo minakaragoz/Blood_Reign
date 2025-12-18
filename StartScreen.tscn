@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://csth6rvbndw0q"]
+[gd_scene load_steps=5 format=3 uid="uid://csth6rvbndw0q"]
 
 [ext_resource type="Script" uid="uid://cmqxg0yqo22lt" path="res://start_screen.gd" id="1_mqr7l"]
 [ext_resource type="Texture2D" uid="uid://dlmdtcgy8dtm5" path="res://sprites/grave4.png.webp" id="2_mqr7l"]
 [ext_resource type="Texture2D" uid="uid://75484itkegtl" path="res://sprites/start.png" id="3_mqr7l"]
+[ext_resource type="AudioStream" uid="uid://bfwuopvclir8p" path="res://sounds/1 game over whistle.wav" id="4_t2adt"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -63,3 +64,7 @@ z_index = -1
 position = Vector2(576.699, 324.199)
 scale = Vector2(0.407568, 0.431395)
 texture = ExtResource("3_mqr7l")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_t2adt")
+autoplay = true

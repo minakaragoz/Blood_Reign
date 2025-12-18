@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://c2sya6m7v0ta4"]
+[gd_scene load_steps=67 format=3 uid="uid://c2sya6m7v0ta4"]
 
 [ext_resource type="Script" uid="uid://dkkpp5iymlhre" path="res://characters/player(trial).gd" id="1_mhsww"]
 [ext_resource type="Texture2D" uid="uid://bsblbm24ltjgu" path="res://sprites/FrontIdleCompExp.png.webp" id="2_0ayws"]
@@ -12,6 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://bs4jqnd1c00eb" path="res://sprites/player_walk_s.png" id="10_upyrn"]
 [ext_resource type="Texture2D" uid="uid://cv2t6a6kiykeg" path="res://sprites/player_walk_f.png" id="11_eus0g"]
 [ext_resource type="Texture2D" uid="uid://tmd336q5vydg" path="res://sprites/player_walk_b.png" id="12_l7hu3"]
+[ext_resource type="AudioStream" uid="uid://b6pcq3jcurb7c" path="res://sounds/claw attack miss.wav" id="13_eus0g"]
+[ext_resource type="AudioStream" uid="uid://clx3rfo21d2or" path="res://sounds/Copy of kill with bite.wav" id="14_l7hu3"]
+[ext_resource type="AudioStream" uid="uid://fqeao3m23hc2" path="res://sounds/Copy of 1 taking damage.mp3" id="15_l7hu3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jisgs"]
 size = Vector2(31.5227, 25.204)
@@ -462,3 +465,13 @@ collision_mask = 4
 scale = Vector2(4.76, 4.76)
 shape = SubResource("CircleShape2D_3ht1r")
 debug_color = Color(0.894303, 0.297145, 0.316204, 0.42)
+
+[node name="ClawSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_eus0g")
+
+[node name="BiteSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_l7hu3")
+attenuation = 1.07177
+
+[node name="DamageSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_l7hu3")
