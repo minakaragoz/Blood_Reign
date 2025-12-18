@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://hf04r3nro8ku"]
+[gd_scene load_steps=16 format=3 uid="uid://hf04r3nro8ku"]
 
 [ext_resource type="Script" uid="uid://b5ushvvm7q46p" path="res://chuch_level.gd" id="1_q3wp2"]
 [ext_resource type="Script" uid="uid://tdydnqeamubo" path="res://Levels/blood_flash.gd" id="2_nudri"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dvrqrim3rhvb7" path="res://Traps/bearTrap.tscn" id="6_8onno"]
 [ext_resource type="PackedScene" uid="uid://6sdioymgr8o0" path="res://spikeTrap.tscn" id="7_ojf52"]
 [ext_resource type="AudioStream" uid="uid://b0jcrbp125r6i" path="res://sounds/Copy of old-church-bell.wav" id="8_nudri"]
+[ext_resource type="PackedScene" uid="uid://7plrfi08xwim" path="res://characters/villager.tscn" id="9_5wd53"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_eicmj"]
 font_size = 40
@@ -124,3 +125,33 @@ scale = Vector2(5.4, 5.4)
 position = Vector2(-2, 0)
 stream = ExtResource("8_nudri")
 autoplay = true
+
+[node name="Villager" parent="." instance=ExtResource("9_5wd53")]
+position = Vector2(-1860, -790)
+
+[node name="Villager2" parent="." instance=ExtResource("9_5wd53")]
+position = Vector2(-1348, -662)
+
+[node name="Villager3" parent="." instance=ExtResource("9_5wd53")]
+position = Vector2(-2018, 633)
+
+[node name="Villager4" parent="." instance=ExtResource("9_5wd53")]
+position = Vector2(-1265, 1040)
+
+[node name="Villager5" parent="." instance=ExtResource("9_5wd53")]
+position = Vector2(1341, -820)
+
+[node name="Villager6" parent="." instance=ExtResource("9_5wd53")]
+position = Vector2(1386, -338)
+
+[node name="Villager7" parent="." instance=ExtResource("9_5wd53")]
+position = Vector2(1537, 204)
+
+[node name="Villager8" parent="." instance=ExtResource("9_5wd53")]
+position = Vector2(-670, -993)
+
+[node name="Villager9" parent="." instance=ExtResource("9_5wd53")]
+position = Vector2(1642, 769)
+
+[node name="Villager10" parent="." instance=ExtResource("9_5wd53")]
+position = Vector2(1785, -790)

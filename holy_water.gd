@@ -1,5 +1,5 @@
 extends Area2D
-
+var source_group: String = ""
 @export var speed := 450
 @export var damage := 25
 var direction := Vector2.ZERO
