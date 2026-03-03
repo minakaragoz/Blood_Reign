@@ -31,6 +31,7 @@ size = Vector2(119.38, 3.08)
 size = Vector2(114.08, 4.1)
 
 [node name="Node2D" type="Node2D"]
+position = Vector2(1, 0)
 script = ExtResource("1_6uicv")
 
 [node name="TestFloor" parent="." instance=ExtResource("1_bdlou")]

@@ -7,7 +7,7 @@ var soul_count := 0
 # skills reset on death
 var purchased_skills = {
 	"blood_frenzy": false, # base skill blood frenzy
-	"blood_bond": true,   # base skill blood bond
+	"blood_bond": false,   # base skill blood bond
 	"bat_form": false,     # base skill bat form
 	
 	"blood_frenzy_better_claw": false, #faster claw attack by 10%, more blood lose by 4%
